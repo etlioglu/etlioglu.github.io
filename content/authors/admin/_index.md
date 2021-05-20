@@ -3,15 +3,15 @@ bio: My research interests include distributed robotics, mobile computing and pr
   matter.
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - course: PhD in Biomedical Sciences
+    institution: KU Leuven
+    year: 2017
+  - course: MSc in Molecular Biology Genetics and Biotechnology
+    institution: Istanbul Technical University
     year: 2008
+  - course: BSc in Molecular Biology and Genetics
+    institution: Bogazici University
+    year: 2004
 email: ""
 highlight_name: false
 interests:
