@@ -1,4 +1,6 @@
 ---
+active: true
+
 # An instance of the Portfolio widget.
 # Documentation: https://wowchemy.com/docs/page-builder/
 widget: portfolio
@@ -26,11 +28,11 @@ content:
   # To remove the toolbar, delete the entire `filter_button` block.
   filter_button:
   - name: All
-    tag: '*'
-  - name: Deep Learning
-    tag: Deep Learning
-  - name: Other
-    tag: Demo
+    tag: '' # use * when you have projects to show
+  - name: Data analysis
+    tag: data analysis
+  - name: Programming
+    tag: programming
 
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.
@@ -41,7 +43,7 @@ design:
   #   2 = Compact
   #   3 = Card
   #   5 = Showcase
-  view: 2
+  view: 1
 
   # For Showcase view, flip alternate rows?
   flip_alt_rows: false

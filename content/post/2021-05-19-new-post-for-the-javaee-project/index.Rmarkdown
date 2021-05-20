@@ -5,8 +5,8 @@ date: '2021-05-19'
 slug: new-post-for-the-javaee-project
 categories: []
 tags: []
-subtitle: ''
-summary: ''
+subtitle: 'Subtitle: A short example blog post for the JavaEE project'
+summary: 'Summary: A short example blog post for the JavaEE project'
 authors: []
 lastmod: '2021-05-19T20:45:18+02:00'
 featured: no
@@ -19,6 +19,7 @@ projects: []
 
 ```{r}
 summary(Orange)
+dim(mtcars)
 ```
 
 ```{r echo=FALSE}
