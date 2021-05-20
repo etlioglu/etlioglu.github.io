@@ -15,13 +15,13 @@ education:
 email: ""
 highlight_name: false
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- High throughput sequencing
+- High dimensional data analysis
+- Software development
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
-role: Professor of Artificial Intelligence
+- name: ...
+  url: ...
+role: Data Analyst
 social:
 - icon: envelope
   icon_pack: fas
