@@ -1,6 +1,5 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: I am a molecular biologist turned bioinformatician/data analyst.
 education:
   courses:
   - course: PhD in Biomedical Sciences

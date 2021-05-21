@@ -5,8 +5,8 @@ date: '2021-05-19'
 slug: new-post-for-the-javaee-project
 categories: []
 tags: []
-subtitle: ''
-summary: ''
+subtitle: 'Subtitle: A short example blog post for the JavaEE project'
+summary: 'Summary: A short example blog post for the JavaEE project'
 authors: []
 lastmod: '2021-05-19T20:45:18+02:00'
 featured: no
@@ -30,6 +30,14 @@ summary(Orange)
 ##  2:7   Mean   : 922.1   Mean   :115.9  
 ##  4:7   3rd Qu.:1372.0   3rd Qu.:161.5  
 ##        Max.   :1582.0   Max.   :214.0
+```
+
+```r
+dim(mtcars)
+```
+
+```
+## [1] 32 11
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
