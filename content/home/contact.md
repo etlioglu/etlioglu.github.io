@@ -20,7 +20,7 @@ content:
   form:
     provider: formspree
     formspree:
-      id: https://formspree.io/f/emre.etlioglu@protonmail.com
+      id: https://formspree.io/f/myyleagn
     netlify:
       # Enable CAPTCHA challenge to reduce spam?
       captcha: false
