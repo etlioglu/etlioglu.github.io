@@ -12,7 +12,8 @@ headless: true
 weight: 50
 
 # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
-title: 'Accomplish&shy;ments'
+# title: 'Accomplish&shy;ments'
+title: 'Certificates'
 subtitle:
 
 # Date format
@@ -37,7 +38,7 @@ item:
   date_end: ""
   date_start: "2020-11-01"
   description:
-  organization: edX
+  organization: Datacamp
   organization_url: https://www.datacamp.com/
   title: Statistician with R (5 courses)
   url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
