@@ -16,8 +16,8 @@ highlight_name: false
 interests:
 - High throughput sequencing
 - High dimensional data analysis
-- Software development
 - Data visualization
+- Software development
 organizations:
 - name: ...
   url: ...
