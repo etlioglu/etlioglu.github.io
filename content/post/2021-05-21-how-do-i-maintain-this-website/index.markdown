@@ -1,0 +1,58 @@
+---
+title: How do I maintain this website?
+author: H. Emre ETLIOGLU
+date: '2021-05-21'
+slug: how-do-i-maintain-this-website
+categories: []
+tags: []
+subtitle: ''
+summary: 'A short summary of what I usually do to maintain this website'
+authors: []
+lastmod: '2021-05-21T10:03:13+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+New blog/entry:
+
+
+```r
+blogdown::new_post(title = "Hi Hugo",
+                   ext = '.Rmarkdown',
+                   subdir = "post")
+```
+
+***
+
+Adding 3 or more  more hyphens, asterisks, or underscores on a single line by themselves would create a horizontla rule.
+
+
+```r
+* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+```
+
+***
+
+This will create a blog post as a `Rmarkdown` document. The extension could be `Rmd` as well. The newly created `Rmarkdown` document should be knitted every time it is updated.
+
+
+To commit and push the changes:
+
+
+```bash
+git add -A
+git commit -m "commit message"
+git push
+```

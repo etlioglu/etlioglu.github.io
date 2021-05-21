@@ -1,6 +1,4 @@
 ---
-active = false
-
 date: "2019-07-12"
 diagram: true
 highlight: true
