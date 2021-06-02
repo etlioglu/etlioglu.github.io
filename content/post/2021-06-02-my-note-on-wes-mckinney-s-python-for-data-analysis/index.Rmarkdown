@@ -20,3 +20,5 @@ projects: []
 
 Book Data and Code Notebooks: https://github.com/wesm/pydata-book
 
+Errata for Python for Data Analysis: https://www.oreilly.com/catalog/errata.csp?isbn=0636920050896
+
