@@ -1,0 +1,20 @@
+---
+title: Cheat sheets
+author: H. Emre ETLIOGLU
+date: '2021-06-03'
+slug: cheat-sheets
+categories: []
+tags: []
+subtitle: ''
+summary: 'Cheat sheets for various languages/packages/tools'
+authors: []
+lastmod: '2021-06-03T15:08:55+02:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+[SQL](sql-basics-cheat-sheet-a3.pdf)
