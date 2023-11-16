@@ -1,11 +1,20 @@
 ---
-title: "etlioglu.github.io"
+title: "H. Emre Etlioglu"
+image: haci.png
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 20em
+  links:
+    - text: LinkedIn
+      href: ""
+    - text: Twitter
+      href: ""
+    - text: GitHub
+      href: ""
+    - text: Email
+      href: ""
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+# Hi there!
