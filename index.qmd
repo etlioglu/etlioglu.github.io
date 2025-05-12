@@ -1,7 +1,7 @@
 ---
-title: "etlioglu.github.io"
+title: "H. Emre Etlioglu"
+about:
+    template: jolla
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Molecular biologist turned bioinformatician.

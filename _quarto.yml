@@ -3,20 +3,20 @@ project:
   output-dir: docs
 
 website:
-  title: "etlioglu.github.io"
+  title: "H. Emre Etlioglu"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - cheatsheets.qmd
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      - default
     css: styles.css
     toc: true
+    code-line-numbers: true
 
 
 

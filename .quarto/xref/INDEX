@@ -4,5 +4,17 @@
   },
   "index.qmd": {
     "index.html": "433abc9d"
+  },
+  "resources.qmd": {
+    "resources.html": "10efc1c9"
+  },
+  "resources/quarto_website/index.qmd": {
+    "index.html": "82290492"
+  },
+  "cheatsheets.qmd": {
+    "cheatsheets.html": "39c339eb"
+  },
+  "cheatsheets/quarto_website/index.qmd": {
+    "index.html": "7836e406"
   }
 }

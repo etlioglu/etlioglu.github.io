@@ -1,0 +1,78 @@
+---
+title: "Websites with Quarto"
+date: today
+---
+
+## Creating a website with Quarto
+
+[Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/)
+
+## Adding sections
+
+- Inspired from [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
+
+- Create a subdirectory within the main projrect directory (`cheatsheets` in this case) and add a `_metadata.yml` file
+containing section-specific options (format, etc...):
+
+```{.bash filename="Terminal"}
+touch cheatsheets/_metadata.yml
+```
+
+- The options specified within `_metadata.yml` will apply to all docs within the `cheatsheets` folder:
+
+```{.default filename="cheatsheets/_metadata.yml"}
+# re-render only when a change to the source file is made
+freeze: auto
+
+# enable banner style title blocks
+title-block-banner: true
+
+execute:
+  eval: false
+```
+
+- Create a listing page within the main project directory (`cheatsheets.qmd` in this case)
+
+```{.default filename="cheatsheets.qmd"}
+---
+title: "Cheeatsheets"
+listing:
+    contents: cheatsheets
+    type: table
+    fields: [date, title]
+---
+```
+
+- Add the newly created listing, `cheatsheets.qmd`, to the `navbar` section of `_quarto.yml` (line 12):
+
+```{.defatult filename="_quarto.yml"}
+---
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "H. Emre Etlioglu"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - cheatsheets.qmd
+
+format:
+  html:
+    theme:
+      - default
+    css: styles.css
+    toc: true
+---    
+```
+
+- Add a subfolder (`quarto_website` in this case) to the newly created section and a an `index.qmd` within that:
+
+```{.bash filename="Terminal"}
+touch cheatsheets/quarto_website/index.qmd
+```
+
+- Populate the newly created `quarto` document to generate an entry within the newly created section.
+

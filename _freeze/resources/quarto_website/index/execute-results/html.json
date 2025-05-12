@@ -1,0 +1,12 @@
+{
+  "hash": "a726d491b929b4900b42d310e21a768c",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Websites with Quarto\"\ndate: today\n---\n\n\n## Creating a website with Quarto\n\n[Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/)\n\n## Adding sections\n\n- Inspired from [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)\n\n- Create a subdirectory within the main projrect directory (`cheatsheets` in this case) and add a `_metadata.yml` file\ncontaining section-specific options (format, etc...)\n\n\n```{default file=\"cheatsheets/_metadata.yml\"}\n# ref: https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/\n# options specified here will apply to all docs within this folder\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

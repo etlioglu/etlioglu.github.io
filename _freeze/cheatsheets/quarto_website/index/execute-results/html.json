@@ -1,0 +1,12 @@
+{
+  "hash": "1547a9256bc5a2ca54a8fd46d9581a4d",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Websites with Quarto\"\ndate: today\n---\n\n\n## Creating a website with Quarto\n\n[Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/)\n\n## Adding sections\n\n- Inspired from [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)\n\n- Create a subdirectory within the main projrect directory (`cheatsheets` in this case) and add a `_metadata.yml` file\ncontaining section-specific options (format, etc...):\n\n\n```{bash filename=\"Terminal\"}\ntouch cheatsheets/_metadata.yml\n```\n\n\n- The options specified within `_metadata.yml` will apply to all docs within the `cheatsheets` folder:\n\n```{.default filename=\"cheatsheets/_metadata.yml\"}\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n```\n\n- Create a listing page within the main project directory (`cheatsheets.qmd` in this case)\n\n```{.default filename=\"cheatsheets.qmd\"}\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n---\n```\n\n- Add the newly created listing, `cheatsheets.qmd`, to the `navbar` section of `_quarto.yml` (line 12):\n\n```{.defatult filename=\"_quarto.yml\"}\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n```\n\nTest\n\n```bash\nls -ltha\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
