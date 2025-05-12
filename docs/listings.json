@@ -2,6 +2,7 @@
   {
     "listing": "/cheatsheets.html",
     "items": [
+      "/cheatsheets/nextflow/index.html",
       "/cheatsheets/quarto_website/index.html"
     ]
   }

@@ -16,5 +16,8 @@
   },
   "cheatsheets/quarto_website/index.qmd": {
     "index.html": "7836e406"
+  },
+  "cheatsheets/nextflow/index.qmd": {
+    "index.html": "68ec2d96"
   }
 }

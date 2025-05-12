@@ -1,0 +1,42 @@
+---
+title: "Nextflow"
+date: today
+---
+
+##  Runtime
+
+- Fetch a particular version of a pipeline:
+
+```{.default filename="Terminal"}
+nextflow pull nf-core/rnaseq -r 3.14.0`
+```
+
+- Hypens:
+    - `-` for `Nextflow` options
+    - `--` for pipeline-specific options
+<br/><br/>  
+
+- Find all previous runs in the current directory:
+
+```{.default filename="Terminal"}
+nextflow log
+```
+
+## Language    
+    
+- Variables defined by `params.` can be changed/overridden via command line arguments.
+
+- Every function applied to a `channel` is a `channel operator`.
+
+- `.flatten()` is the opposite of `.collect()`.
+
+- `.view()` sends to standard output.
+
+
+## Configuration
+
+- Configuration when done within a nextflow script does not require `=`.
+
+- Configuration when done within a config file requires `=`.
+
+- Within a config file, whatever is within `"` and `"` are expanded. `'` can be used if expansion is not desired.

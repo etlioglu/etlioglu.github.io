@@ -35,10 +35,38 @@
     "text": "About this site"
   },
   {
+    "objectID": "cheatsheets/nextflow/index.html",
+    "href": "cheatsheets/nextflow/index.html",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#runtime",
+    "href": "cheatsheets/nextflow/index.html#runtime",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#language",
+    "href": "cheatsheets/nextflow/index.html#language",
+    "title": "Nextflow",
+    "section": "Language",
+    "text": "Language\n\nVariables defined by params. can be changed/overridden via command line arguments.\nEvery function applied to a channel is a channel operator.\n.flatten() is the opposite of .collect().\n.view() sends to standard output."
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#configuration",
+    "href": "cheatsheets/nextflow/index.html#configuration",
+    "title": "Nextflow",
+    "section": "Configuration",
+    "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
+  },
+  {
     "objectID": "cheatsheets.html",
     "href": "cheatsheets.html",
     "title": "Cheatsheets",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 12, 2025\n\n\nNextflow\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\n\nNo matching items"
   }
 ]
