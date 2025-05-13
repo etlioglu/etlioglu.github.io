@@ -2,7 +2,9 @@
   {
     "listing": "/cheatsheets.html",
     "items": [
+      "/cheatsheets/maxquant/index.html",
       "/cheatsheets/nextflow/index.html",
+      "/cheatsheets/r/index.html",
       "/cheatsheets/rnaseq/index.html",
       "/cheatsheets/quarto_website/index.html"
     ]

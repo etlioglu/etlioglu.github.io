@@ -1,0 +1,41 @@
+---
+title: "MaxQuant"
+date: 2025-05-13
+date-modified: 2025-05-13
+---
+
+## Starting a run with the GUI
+
+1. Specify raw data
+   
+   - fill in `Experiment` or set `No fractions` 
+
+2. Group specific parameters:
+
+   - for LFQ:
+     - Type: Standard, Multiplicity: 1
+     - Label-free quantification: LFQ
+     - Digestion
+
+3. Global parameters:
+
+   - Fasta file: Proteome from Uniprot
+   - Tables: mzTab
+
+## Updating the `xml` file generated above
+
+1. `dotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path`
+
+```{.bash filename="Terminal"}
+.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .
+```
+
+2. Set number of cores
+
+`<numThreads>4</numThreads>`
+
+3. Starting a run on the server
+
+```{.bash filename="Terminal"}
+nohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml > nohup.out 2> nohup.err
+```

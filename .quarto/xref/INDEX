@@ -22,5 +22,14 @@
   },
   "cheatsheets/rnaseq/index.qmd": {
     "index.html": "35633aaa"
+  },
+  "resources/maxquant/index.qmd": {
+    "index.html": "71a54fec"
+  },
+  "cheatsheets/maxquant/index.qmd": {
+    "index.html": "90e307c4"
+  },
+  "cheatsheets/r/index.qmd": {
+    "index.html": "05b2e506"
   }
 }
