@@ -1,0 +1,34 @@
+---
+title: "git"
+date: 2025-05-13
+date-modified: 2025-05-13
+---
+
+## Tutorials
+
+- Getting Git right by Atlassian(https://www.atlassian.com/git)
+
+## Commonly used commands
+
+- Check user name
+
+```{.bash filename="Terminal"}
+git config user.name
+```
+
+- Check user e-mail
+
+```{.bash filename="Terminal"}
+git config user.email
+```
+
+- Check all configs
+
+```{.bash filename="Terminal"}
+git config --list
+```
+- Create a new branch and switch to it:
+
+```{.bash filename="Terminal"}
+git checkout -b name-of-the-new-branch
+```
