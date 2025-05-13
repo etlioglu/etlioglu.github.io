@@ -37,5 +37,8 @@
   },
   "tutorials.qmd": {
     "tutorials.html": "0d2cb5f1"
+  },
+  "cheatsheets/git/index.qmd": {
+    "index.html": "2e2a14f5"
   }
 }

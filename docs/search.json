@@ -130,7 +130,7 @@
     "href": "cheatsheets.html",
     "title": "Cheatsheets",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\nMay 13, 2025\n\n\ngit\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "tutorials/docker/index.html",
@@ -152,5 +152,26 @@
     "title": "A short tutorial on docker",
     "section": "Pulling a docker image",
     "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html",
+    "href": "cheatsheets/git/index.html",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian(https://www.atlassian.com/git)"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#tutorials",
+    "href": "cheatsheets/git/index.html#tutorials",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian(https://www.atlassian.com/git)"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
+    "href": "cheatsheets/git/index.html#commonly-used-commands",
+    "title": "git",
+    "section": "Commonly used commands",
+    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
   }
 ]
