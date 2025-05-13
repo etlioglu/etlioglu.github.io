@@ -1,0 +1,7 @@
+---
+title: "Tutorials"
+listing:
+    contents: tutorials
+    type: table
+    fields: [date, title]
+---

@@ -31,5 +31,11 @@
   },
   "cheatsheets/r/index.qmd": {
     "index.html": "05b2e506"
+  },
+  "tutorials/docker/index.qmd": {
+    "index.html": "35095ae5"
+  },
+  "tutorials.qmd": {
+    "tutorials.html": "0d2cb5f1"
   }
 }

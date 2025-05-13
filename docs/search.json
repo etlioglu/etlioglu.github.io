@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "tutorials.html",
+    "href": "tutorials.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 12, 2025\n\n\nA short tutorial on docker\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "H. Emre Etlioglu",
@@ -124,5 +131,26 @@
     "title": "Cheatsheets",
     "section": "",
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "tutorials/docker/index.html",
+    "href": "tutorials/docker/index.html",
+    "title": "A short tutorial on docker",
+    "section": "",
+    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below ref:\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+  },
+  {
+    "objectID": "tutorials/docker/index.html#set-up",
+    "href": "tutorials/docker/index.html#set-up",
+    "title": "A short tutorial on docker",
+    "section": "",
+    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below ref:\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+  },
+  {
+    "objectID": "tutorials/docker/index.html#pulling-a-docker-image",
+    "href": "tutorials/docker/index.html#pulling-a-docker-image",
+    "title": "A short tutorial on docker",
+    "section": "Pulling a docker image",
+    "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\nPulling the image:\n\n\nTerminal\n\ndocker image pull\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB\nWhen you start a docker container out of a docker image, you will have an isolated environment that is separated from the host, this is by design. In some cases though, you will want to use some data from the host (i.e. FASTQ files). You can start a container and at the same time attach a local folder to the container with the following code:\n\n\nTerminal\n\ndocker run -it -v full_path_of_the_folder_within_host:mount_point_within_the_container docker_image_of_interest\n\n\nit: the container is started with the interactive mode so you can work within it\n-v: used to mount/bind a folder from the host to the container\n\nMoreover, you might want to use the -u option to specify the user that will be used to run the container. This will be handy if new files/folders are created within the container and you want to be able to access them from the host.\n\n\nTerminal\n\ndocker run -it -v full_path_of_the_folder_within_host:mount_point_within_the_container docker_image_of_interest -u $(id -u):$(id -g)\n\n\n&lt;(...) is a bash command substitution and is preferred to use the output of one command, the command within the parentheses, in another command. In the example above, $(id -u) will be replaced by the user id of the user running the command docker run command and $(id -g) will be replaced by the group id of the user running the docker run command.\n\nAll in all, the easiest is to navigate to the folder of interest in your host machine and run the docker run ... command from within there:\n\n\nTerminal\n\ndocker run -it -v ./:/data/ quay.io/comparative-genomics-toolkit/cactus:v2.9.3 -u $(id -u):$(id -g)\n\nDo not forget to specify the TAG at the end."
   }
 ]

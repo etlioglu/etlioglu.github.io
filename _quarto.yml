@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - cheatsheets.qmd
+      - tutorials.qmd
 
 format:
   html:
