@@ -6,7 +6,7 @@ date-modified: 2025-05-13
 
 ## Tutorials
 
-- Getting Git right by Atlassian(https://www.atlassian.com/git)
+- [Getting Git right by Atlassian](https://www.atlassian.com/git)
 
 ## Commonly used commands
 
