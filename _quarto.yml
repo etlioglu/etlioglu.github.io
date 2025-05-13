@@ -10,6 +10,7 @@ website:
         text: Home
       - cheatsheets.qmd
       - tutorials.qmd
+      - resources.qmd
 
 format:
   html:

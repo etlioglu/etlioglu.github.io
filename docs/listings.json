@@ -6,6 +6,12 @@
     ]
   },
   {
+    "listing": "/resources.html",
+    "items": [
+      "/resources/python/index.html"
+    ]
+  },
+  {
     "listing": "/cheatsheets.html",
     "items": [
       "/cheatsheets/maxquant/index.html",

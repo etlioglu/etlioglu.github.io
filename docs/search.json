@@ -7,6 +7,13 @@
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 12, 2025\n\n\nA short tutorial on docker\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nPython\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "H. Emre Etlioglu",
@@ -166,6 +173,41 @@
     "title": "Cheatsheets",
     "section": "",
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\nMay 13, 2025\n\n\ngit\n\n\n\n\nMay 13, 2025\n\n\nmacos\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resources/python/index.html",
+    "href": "resources/python/index.html",
+    "title": "Python",
+    "section": "",
+    "text": "sololearn\ncodecademy"
+  },
+  {
+    "objectID": "resources/python/index.html#introduction",
+    "href": "resources/python/index.html#introduction",
+    "title": "Python",
+    "section": "",
+    "text": "sololearn\ncodecademy"
+  },
+  {
+    "objectID": "resources/python/index.html#podcasts",
+    "href": "resources/python/index.html#podcasts",
+    "title": "Python",
+    "section": "Podcasts",
+    "text": "Podcasts\n\nTalk Python To Me\nReal Python"
+  },
+  {
+    "objectID": "resources/python/index.html#testing",
+    "href": "resources/python/index.html#testing",
+    "title": "Python",
+    "section": "Testing",
+    "text": "Testing\n\nPytest for Beginners"
+  },
+  {
+    "objectID": "resources/python/index.html#virtual-environments",
+    "href": "resources/python/index.html#virtual-environments",
+    "title": "Python",
+    "section": "Virtual Environments",
+    "text": "Virtual Environments\n\nPython Virtual Environments: A Primer"
   },
   {
     "objectID": "tutorials/docker/index.html",

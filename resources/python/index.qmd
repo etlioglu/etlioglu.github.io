@@ -1,0 +1,25 @@
+---
+title: "Python"
+date: 2025-05-13
+date-modified: 2025-05-13
+---
+
+## Introduction
+
+- [sololearn](https://www.sololearn.com/)
+
+- [codecademy](https://www.codecademy.com/)
+
+## Podcasts
+
+- Talk Python To Me
+
+- Real Python
+
+## Testing
+
+- [Pytest for Beginners](https://testdriven.io/blog/pytest-for-beginners/)
+
+## Virtual Environments
+
+- [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/)

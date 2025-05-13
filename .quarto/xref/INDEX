@@ -43,5 +43,8 @@
   },
   "cheatsheets/macos/index.qmd": {
     "index.html": "43a2e6da"
+  },
+  "resources/python/index.qmd": {
+    "index.html": "74de36cc"
   }
 }
