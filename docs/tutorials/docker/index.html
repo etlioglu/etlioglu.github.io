@@ -194,19 +194,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="set-up" class="level2">
 <h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
-<ol type="1">
-<li>The user needs to belong to the group <code>docker</code>. The following command lets you check this:</li>
-</ol>
+<p>The user needs to belong to the group <code>docker</code>. The following command lets you check this:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
 <div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">groups</span> username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol type="i">
-<li><p>If the output is something like <code>username : username docker</code> you are good to go. It means that the user is part of the groups <code>username</code> and <code>docker</code>. (A group with the same name as the user is always created while creating the user.)</p></li>
-<li><p>If you do not belong to the group <code>docker</code>, consult your system admin. Basically, this is the person with the <code>sudo</code> privilages on your server. You will be added to the <code>docker</code> group with the command below (<a href="https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group">ref</a>):</p></li>
-</ol>
+<p>If the output is something like <code>username : username docker</code> you are good to go. It means that the user is part of the groups <code>username</code> and <code>docker</code>. (A group with the same name as the user is always created while creating the user.)</p>
+<p>If you do not belong to the group <code>docker</code>, consult your system admin. Basically, this is the person with the <code>sudo</code> privilages on your server. You will be added to the <code>docker</code> group with the command below (<a href="https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group">ref</a>):</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
@@ -246,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb6" data-filename="Terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">-v</span> full_path_of_the_folder_within_host:mount_point_within_the_container docker_image_of_interest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><code>it</code>: the container is started with the interactive mode so you can work within it</li>
+<li><code>-it</code>: the container is started with the interactive mode so you can work within it</li>
 <li><code>-v</code>: used to mount/bind a folder from the host to the container</li>
 </ul>
 <p>Moreover, you might want to use the <code>-u</code> option to specify the user that will be used to run the container. This will be handy if new files/folders are created within the container and you want to be able to access them from the host.</p>
