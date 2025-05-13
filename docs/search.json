@@ -63,13 +63,6 @@
     "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "cheatsheets/git/index.html",
     "href": "cheatsheets/git/index.html",
     "title": "git",
@@ -89,6 +82,27 @@
     "title": "git",
     "section": "Commonly used commands",
     "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html",
+    "href": "cheatsheets/macos/index.html",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
   },
   {
     "objectID": "cheatsheets/nextflow/index.html",
@@ -151,7 +165,7 @@
     "href": "cheatsheets.html",
     "title": "Cheatsheets",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\nMay 13, 2025\n\n\ngit\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nMay 13, 2025\n\n\nMaxQuant\n\n\n\n\nMay 13, 2025\n\n\nNextflow\n\n\n\n\nMay 13, 2025\n\n\nR\n\n\n\n\nMay 13, 2025\n\n\nRNASeq\n\n\n\n\nMay 12, 2025\n\n\nWebsites with Quarto\n\n\n\n\nMay 13, 2025\n\n\ngit\n\n\n\n\nMay 13, 2025\n\n\nmacos\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "tutorials/docker/index.html",

@@ -1,0 +1,25 @@
+---
+title: "macos"
+date: 2025-05-13
+date-modified: 2025-05-13
+---
+
+## Mounting EXT4 filesystem
+
+- After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):
+
+```{.bash filename="Terminal"}
+diskutil list
+sudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other
+```
+
+- To use finder on the mounted filesystem:
+
+```{.bash filename="Terminal"}
+open ~/tmp/
+```
+- Unmounting after use:
+
+```{.bash filename="Terminal"}
+diskutil unmountDisk /dev/diskN
+```

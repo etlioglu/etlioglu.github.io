@@ -40,5 +40,8 @@
   },
   "cheatsheets/git/index.qmd": {
     "index.html": "2e2a14f5"
+  },
+  "cheatsheets/macos/index.qmd": {
+    "index.html": "43a2e6da"
   }
 }
