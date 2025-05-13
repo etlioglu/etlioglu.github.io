@@ -18,3 +18,4 @@ format:
     css: styles.css
     toc: true
     code-line-numbers: true
+    code-copy: true
