@@ -3,5 +3,5 @@ title: "Cheatsheets"
 listing:
     contents: cheatsheets
     type: table
-    fields: [date, title]
+    fields: [title, date]
 ---

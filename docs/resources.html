@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -231,20 +231,20 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
 </tr>
 </thead>
 <tbody class="list">
 <tr data-index="0" data-listing-date-sort="1747087200000" data-listing-file-modified-sort="1747148067318" data-listing-date-modified-sort="1747087200000" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="Python" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-date">May 13, 2025</span>
+<a href="./resources/python/index.html" class="title listing-title">Python</a>
 </td>
 <td>
-<a href="./resources/python/index.html" class="title listing-title">Python</a>
+<span class="listing-date">May 13, 2025</span>
 </td>
 </tr>
 </tbody>

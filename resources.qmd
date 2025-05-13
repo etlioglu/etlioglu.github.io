@@ -3,5 +3,5 @@ title: "Resources"
 listing:
     contents: resources
     type: table
-    fields: [date, title]
+    fields: [title, date]
 ---
