@@ -15,7 +15,7 @@ date: today
 containing section-specific options (format, etc...):
 
 ```{.bash filename="Terminal"}
-touch cheatsheets/_metadata.yml
+mkdir cheatsheets && touch cheatsheets/_metadata.yml
 ```
 
 - The options specified within `_metadata.yml` will apply to all docs within the `cheatsheets` folder:
