@@ -19,5 +19,8 @@
   },
   "cheatsheets/nextflow/index.qmd": {
     "index.html": "68ec2d96"
+  },
+  "cheatsheets/rnaseq/index.qmd": {
+    "index.html": "35633aaa"
   }
 }

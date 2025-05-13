@@ -3,6 +3,7 @@
     "listing": "/cheatsheets.html",
     "items": [
       "/cheatsheets/nextflow/index.html",
+      "/cheatsheets/rnaseq/index.html",
       "/cheatsheets/quarto_website/index.html"
     ]
   }
