@@ -6,17 +6,17 @@ date-modified: 2025-05-13
 
 ## Set-up
 
-The user needs to belong to the group `docker`. The following command lets you check this:
+1. The user needs to belong to the group `docker`. The following command lets you check this:
 
 ```{.bash filename="Terminal"}
 groups username
 ```
 
-If the output is something like `username : username docker` you are good to go. It means that the user is part of the
+  i. If the output is something like `username : username docker` you are good to go. It means that the user is part of the
 groups `username` and `docker`. (A group with the same name as the user is always created while creating the user.)
 
-If you do not belong to the group `docker`, consult your system admin. Basically, this is the person with the `sudo`
-privilages on your server. You will be added to the `docker` group with the command below [ref](https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group):
+  ii. If you do not belong to the group `docker`, consult your system admin. Basically, this is the person with the `sudo`
+privilages on your server. You will be added to the `docker` group with the command below ([ref](https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group)):
 
 ```{.bash filename="Terminal"}
 sudo usermod -aG docker username
@@ -30,10 +30,8 @@ sudo usermod -aG docker username
 You will need to _"pull"_ a `docker image` (basically a template) and then start a `docker container` based on the
 pulled image.
 
-Pulling the image:
-
 ```{.bash filename="Terminal"}
-docker image pull
+docker image pull ...
 ```
 
 You can inspect pulled/downloaded images with the following code:
@@ -44,11 +42,13 @@ docker image ls
 
 The output of `docker image ls` would be something like the following:
 
-```{.bash}
+```{.default}
 REPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE
 quay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB
 broadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB
 ```
+
+# Starting a container
 
 When you start a `docker container` out of a `docker image`, you will have an isolated environment that is separated
 from the host, this is by design. In some cases though, you will want to use some data from the host (i.e. FASTQ files).
@@ -81,3 +81,4 @@ docker run -it -v ./:/data/ quay.io/comparative-genomics-toolkit/cactus:v2.9.3 -
 ```
 
 Do not forget to specify the `TAG` at the end.
+
