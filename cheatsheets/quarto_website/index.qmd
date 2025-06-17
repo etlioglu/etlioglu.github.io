@@ -72,7 +72,7 @@ format:
 - Add a subfolder (`quarto_website` in this case) to the newly created section and a an `index.qmd` within that:
 
 ```{.bash filename="Terminal"}
-touch cheatsheets/quarto_website/index.qmd
+mkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd
 ```
 
 - Populate the newly created `quarto` document to generate an entry within the newly created section.
