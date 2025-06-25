@@ -1,0 +1,33 @@
+---
+title: "Project management"
+date: 2025-06-25
+date-modified: 2025-06-25
+---
+
+- Create a `git` repo.
+
+- Check `git` credentials within the project repo upon cloning:
+
+```{.bash filename="Terminal"}
+git config user.name
+git config user.email
+```
+
+- If necessary, change `git` credentials at the repo level:
+
+```{.bash filename="Terminal"}
+git config user.name "..."
+git config user.email "...@..."
+```
+
+- If necessary, change `git` credentials globally:
+
+```{.bash filename="Terminal"}
+git config --global user.name "..."
+git config ---global user.email "...@..."
+```
+
+- Create a `Teams`/`Slack` channel.
+
+
+

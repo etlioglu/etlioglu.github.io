@@ -46,5 +46,8 @@
   },
   "resources/python/index.qmd": {
     "index.html": "74de36cc"
+  },
+  "cheatsheets/project_management/index.qmd": {
+    "index.html": "bb7566fb"
   }
 }

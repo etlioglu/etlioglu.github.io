@@ -172,7 +172,7 @@
     "href": "cheatsheets.html",
     "title": "Cheatsheets",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources/python/index.html",
@@ -229,5 +229,19 @@
     "title": "A short tutorial on docker",
     "section": "Pulling a docker image",
     "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
+  },
+  {
+    "objectID": "cheatsheets/project_management/index.html",
+    "href": "cheatsheets/project_management/index.html",
+    "title": "Project management",
+    "section": "",
+    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
+  },
+  {
+    "objectID": "cheatsheets/project_management/index.html#project-management",
+    "href": "cheatsheets/project_management/index.html#project-management",
+    "title": "Websites with Quarto",
+    "section": "",
+    "text": "Create a git repo\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email"
   }
 ]
