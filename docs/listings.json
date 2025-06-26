@@ -12,6 +12,12 @@
     ]
   },
   {
+    "listing": "/notes.html",
+    "items": [
+      "/notes/rna_faq/index.html"
+    ]
+  },
+  {
     "listing": "/cheatsheets.html",
     "items": [
       "/cheatsheets/maxquant/index.html",

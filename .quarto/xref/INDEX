@@ -49,5 +49,11 @@
   },
   "cheatsheets/project_management/index.qmd": {
     "index.html": "bb7566fb"
+  },
+  "notes/rna_faq/index.qmd": {
+    "index.html": "4432bccd"
+  },
+  "notes.qmd": {
+    "notes.html": "2fe53321"
   }
 }

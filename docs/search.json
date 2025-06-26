@@ -14,6 +14,13 @@
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "H. Emre Etlioglu",
@@ -49,69 +56,6 @@
     "text": "Adding sections\n\nInspired from Adding a blog to your existing Quarto website\nCreate a subdirectory within the main projrect directory (cheatsheets in this case) and add a _metadata.yml file containing section-specific options (format, etc…):\n\n\n\nTerminal\n\nmkdir cheatsheets && touch cheatsheets/_metadata.yml\n\n\nThe options specified within _metadata.yml will apply to all docs within the cheatsheets folder:\n\n\n\ncheatsheets/_metadata.yml\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n\n\nCreate a listing page within the main project directory (cheatsheets.qmd in this case)\n\n\n\ncheatsheets.qmd\n\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n    fields: [date, title]\n---\n\n\nAdd the newly created listing, cheatsheets.qmd, to the navbar section of _quarto.yml (line 12):\n\n\n\n_quarto.yml\n\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n\n\nAdd a subfolder (quarto_website in this case) to the newly created section and a an index.qmd within that:\n\n\n\nTerminal\n\nmkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd\n\n\nPopulate the newly created quarto document to generate an entry within the newly created section."
   },
   {
-    "objectID": "cheatsheets/maxquant/index.html",
-    "href": "cheatsheets/maxquant/index.html",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "title": "MaxQuant",
-    "section": "Updating the xml file generated above",
-    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html",
-    "href": "cheatsheets/git/index.html",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#tutorials",
-    "href": "cheatsheets/git/index.html#tutorials",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
-    "href": "cheatsheets/git/index.html#commonly-used-commands",
-    "title": "git",
-    "section": "Commonly used commands",
-    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html",
-    "href": "cheatsheets/macos/index.html",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
     "objectID": "cheatsheets/nextflow/index.html",
     "href": "cheatsheets/nextflow/index.html",
     "title": "Nextflow",
@@ -138,6 +82,76 @@
     "title": "Nextflow",
     "section": "Configuration",
     "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html",
+    "href": "cheatsheets/macos/index.html",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html",
+    "href": "cheatsheets/git/index.html",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#tutorials",
+    "href": "cheatsheets/git/index.html#tutorials",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
+    "href": "cheatsheets/git/index.html#commonly-used-commands",
+    "title": "git",
+    "section": "Commonly used commands",
+    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html",
+    "href": "cheatsheets/maxquant/index.html",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "title": "MaxQuant",
+    "section": "Updating the xml file generated above",
+    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
+  },
+  {
+    "objectID": "cheatsheets/project_management/index.html",
+    "href": "cheatsheets/project_management/index.html",
+    "title": "Project management",
+    "section": "",
+    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
   },
   {
     "objectID": "cheatsheets/r/index.html",
@@ -173,6 +187,41 @@
     "title": "Cheatsheets",
     "section": "",
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html",
+    "href": "notes/rna_faq/index.html",
+    "title": "Python",
+    "section": "",
+    "text": "sololearn\ncodecademy"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#introduction",
+    "href": "notes/rna_faq/index.html#introduction",
+    "title": "Python",
+    "section": "",
+    "text": "sololearn\ncodecademy"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#podcasts",
+    "href": "notes/rna_faq/index.html#podcasts",
+    "title": "Python",
+    "section": "Podcasts",
+    "text": "Podcasts\n\nTalk Python To Me\nReal Python"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#testing",
+    "href": "notes/rna_faq/index.html#testing",
+    "title": "Python",
+    "section": "Testing",
+    "text": "Testing\n\nPytest for Beginners"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#virtual-environments",
+    "href": "notes/rna_faq/index.html#virtual-environments",
+    "title": "Python",
+    "section": "Virtual Environments",
+    "text": "Virtual Environments\n\nPython Virtual Environments: A Primer"
   },
   {
     "objectID": "resources/python/index.html",
@@ -229,19 +278,5 @@
     "title": "A short tutorial on docker",
     "section": "Pulling a docker image",
     "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
-  },
-  {
-    "objectID": "cheatsheets/project_management/index.html",
-    "href": "cheatsheets/project_management/index.html",
-    "title": "Project management",
-    "section": "",
-    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
-  },
-  {
-    "objectID": "cheatsheets/project_management/index.html#project-management",
-    "href": "cheatsheets/project_management/index.html#project-management",
-    "title": "Websites with Quarto",
-    "section": "",
-    "text": "Create a git repo\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email"
   }
 ]
