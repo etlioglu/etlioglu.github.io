@@ -11,6 +11,7 @@ website:
       - cheatsheets.qmd
       - tutorials.qmd
       - resources.qmd
+      - notes.qmd
 
 format:
   html:
