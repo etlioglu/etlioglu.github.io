@@ -5,7 +5,7 @@ project:
 website:
   title: "H. Emre Etlioglu"
   navbar:
-    background: "#E54E21"
+    background: "#e54e21"
     foreground: "#eeeef0"
     left:
       - href: index.qmd
@@ -17,9 +17,6 @@ website:
 
 format:
   html:
-    theme:
-      light: flatlyy
-      dark: darkly
     backgroundcolor: "#f6f1e6"
     fontcolor: "#055756"
     css: styles.css
