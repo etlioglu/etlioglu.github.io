@@ -5,6 +5,8 @@ project:
 website:
   title: "H. Emre Etlioglu"
   navbar:
+    background: "#E54E21"
+    foreground: "#eeeef0"
     left:
       - href: index.qmd
         text: Home
@@ -16,7 +18,10 @@ website:
 format:
   html:
     theme:
-      - superhero
+      light: flatlyy
+      dark: darkly
+    backgroundcolor: "#f6f1e6"
+    fontcolor: "#055756"
     css: styles.css
     toc: true
     code-line-numbers: true
