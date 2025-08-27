@@ -7,6 +7,13 @@
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nA short tutorial on docker\n\n\nMay 12, 2025\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "scripts.html",
+    "href": "scripts.html",
+    "title": "Scripts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nAug 25, 2025\n\n\nFetching genomes from Ensembl\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
@@ -250,6 +257,13 @@
     "title": "Python",
     "section": "Virtual Environments",
     "text": "Virtual Environments\n\nPython Virtual Environments: A Primer"
+  },
+  {
+    "objectID": "scripts/fetch_genome/index.html",
+    "href": "scripts/fetch_genome/index.html",
+    "title": "Fetching genomes from Ensembl",
+    "section": "",
+    "text": "Downloads a human/mouse primary assembly and associated annotation in GTF format from Ensembl and checks for data integrity. Inspired from here.\n\n\nfetch_genome.sh\n\n#!/usr/bin/env bash\n\nspecies=\"Human\"\nversion=114\n\nif [ \"${species}\" == \"Human\" ] || [ \"${species}\" == \"human\" ]; then\n    species_short=\"homo_sapiens\"\n    species_long=\"Homo_sapiens.GRCh38\"\nelif [ \"${species}\" == \"Mouse\" ] || [ \"${species}\" == \"mouse\" ]; then\n    species_short=\"mus_musculus\"\n    species_long=\"Mus_musculus.GRCm39\"\nelse\n    echo \"The script works for human or mouse.\"\nfi\n\n# The first argument is the path to the file of interest; FASTA, GTF, ...\n# The second argument is the path to the associated checksum file\nfetch_check() {\n\n    echo -e \"\\nDownloading ${1}...\"\n    wget -q \"${1}\"\n    file=\"$(basename \"${1}\")\"\n\n    calculated_sum=\"$(sum \"${file}\")\"\n    echo \"Calculated checksum: ${calculated_sum}\"\n\n    downloaded_sum=\"$(wget -q -O - \"${2}\" | grep \"${file}\" | cut -d \" \" -f1,2)\"\n    echo \"Downloaded checksum: ${downloaded_sum}\"\n\n    if [ \"${calculated_sum}\" == \"${downloaded_sum}\" ]; then\n        echo \"Checksums match...\"\n    else\n        echo \"CHECKSUMS DO NOT MATCH!\"\n    fi\n\n}\n\nbase_path=\"https://ftp.ensembl.org/pub/release-${version}\"\n\nfasta_path=\"${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz\"\nfasta_sum_path=\"${base_path}/fasta/${species_short}/dna/CHECKSUMS\"\n\nfetch_check \"${fasta_path}\" \"${fasta_sum_path}\"\n\ngtf_path=\"${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz\"\ngtf_sum_path=\"${base_path}/gtf/${species_short}/CHECKSUMS\"\n\nfetch_check \"${gtf_path}\" \"${gtf_sum_path}\""
   },
   {
     "objectID": "tutorials/docker/index.html",

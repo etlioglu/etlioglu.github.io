@@ -55,5 +55,11 @@
   },
   "notes.qmd": {
     "notes.html": "2fe53321"
+  },
+  "scripts/fetch_genome/index.qmd": {
+    "index.html": "df16436d"
+  },
+  "scripts.qmd": {
+    "scripts.html": "abd36bcc"
   }
 }

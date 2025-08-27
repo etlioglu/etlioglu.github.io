@@ -1,0 +1,58 @@
+---
+title: "Fetching genomes from Ensembl"
+date: 2025-08-25
+date-modified: 2025-08-25
+---
+
+Downloads a human/mouse primary assembly and associated annotation in GTF format from [Ensembl](https://ftp.ensembl.org/pub/) and checks for data integrity. Inspired from [here](https://nf-co.re/docs/usage/reference_genomes#custom-genomes).
+
+```{.bash filename="fetch_genome.sh"}
+#!/usr/bin/env bash
+
+species="Human"
+version=114
+
+if [ "${species}" == "Human" ] || [ "${species}" == "human" ]; then
+    species_short="homo_sapiens"
+    species_long="Homo_sapiens.GRCh38"
+elif [ "${species}" == "Mouse" ] || [ "${species}" == "mouse" ]; then
+    species_short="mus_musculus"
+    species_long="Mus_musculus.GRCm39"
+else
+    echo "The script works for human or mouse."
+fi
+
+# The first argument is the path to the file of interest; FASTA, GTF, ...
+# The second argument is the path to the associated checksum file
+fetch_check() {
+
+    echo -e "\nDownloading ${1}..."
+    wget -q "${1}"
+    file="$(basename "${1}")"
+
+    calculated_sum="$(sum "${file}")"
+    echo "Calculated checksum: ${calculated_sum}"
+
+    downloaded_sum="$(wget -q -O - "${2}" | grep "${file}" | cut -d " " -f1,2)"
+    echo "Downloaded checksum: ${downloaded_sum}"
+
+    if [ "${calculated_sum}" == "${downloaded_sum}" ]; then
+        echo "Checksums match..."
+    else
+        echo "CHECKSUMS DO NOT MATCH!"
+    fi
+
+}
+
+base_path="https://ftp.ensembl.org/pub/release-${version}"
+
+fasta_path="${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz"
+fasta_sum_path="${base_path}/fasta/${species_short}/dna/CHECKSUMS"
+
+fetch_check "${fasta_path}" "${fasta_sum_path}"
+
+gtf_path="${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz"
+gtf_sum_path="${base_path}/gtf/${species_short}/CHECKSUMS"
+
+fetch_check "${gtf_path}" "${gtf_sum_path}"
+```

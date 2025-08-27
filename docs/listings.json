@@ -6,6 +6,12 @@
     ]
   },
   {
+    "listing": "/scripts.html",
+    "items": [
+      "/scripts/fetch_genome/index.html"
+    ]
+  },
+  {
     "listing": "/resources.html",
     "items": [
       "/resources/python/index.html"
