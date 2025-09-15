@@ -61,5 +61,14 @@
   },
   "scripts.qmd": {
     "scripts.html": "abd36bcc"
+  },
+  "tutorials/env_vars/index.qmd": {
+    "index.html": "911646d2"
+  },
+  "scratchpad/bash_scripting.md": {
+    "bash_scripting.html": "14bedfee"
+  },
+  "scratchpad/bash_scripting.qmd": {
+    "bash_scripting.html": "6917d94a"
   }
 }
