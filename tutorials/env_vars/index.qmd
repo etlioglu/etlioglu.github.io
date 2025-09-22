@@ -1,7 +1,7 @@
 ---
 title: "Setting environment variables"
 date: 2025-09-05
-date-modified: 2025-09-05
+date-modified: 2025-09-22
 ---
 
 TLDR: Even after using different *\*nix* operating systems like Ubuntu, CentOS, Oracle Linux, macos for many years, I am still not sure about the *best way* to manipulate environment variables but here is what works for me for my bioinformatics focused use case. There are countless resources such as [this one](https://help.ubuntu.com/community/EnvironmentVariables) but more often than not, they teach you "how to fish" but when all you would like to accomplish is to be able to run the new software you just installed, here is your fish: Prepend the `$PATH` variable with the new path and do that within `~/.bashrc` (or `~/.zshrc` if you are using `zsh` shell) and make sure `~/.bashrc` is sourced from `~/.bash_profile` (or `~/.zprofile` for that matter).\*
@@ -18,11 +18,11 @@ As you must have realized, there is no file that is invoked (or sourced) for log
 # .bashrc
 
 # User specific environment
-PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+PATH="$PATH:$HOME/.local/bin"
 export PATH
 ```
 
-The newly added path of `$HOME/.local/bin` is prepended to `$PATH`, this is advised over appending `$PATH`. With this, `$PATH` is read after the newly added path and therefore would have priority. This makes a difference whenever there is a conflict.
+The newly added path of `$HOME/.local/bin` is appended to `$PATH`, [this is advised](https://www.unix-ninja.com/p/the_dangers_of_prepending_path) over prepending `$PATH`. Thanks to this, the typed command/script/app is first searched within whatever is already on `$PATH` and only after that the newly added path is checked.
 
 ```{.bash filename="~/.bash_profile"}
 # .bash_profile
