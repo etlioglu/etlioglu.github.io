@@ -3,7 +3,26 @@
     "listing": "/tutorials.html",
     "items": [
       "/tutorials/docker/index.html",
-      "/tutorials/env_vars/index.html"
+      "/tutorials/env_vars/index.html",
+      "/tutorials/arrayexpress/index.html"
+    ]
+  },
+  {
+    "listing": "/scripts.html",
+    "items": [
+      "/scripts/fetch_genome/index.html"
+    ]
+  },
+  {
+    "listing": "/resources.html",
+    "items": [
+      "/resources/python/index.html"
+    ]
+  },
+  {
+    "listing": "/notes.html",
+    "items": [
+      "/notes/rna_faq/index.html"
     ]
   },
   {
@@ -17,24 +36,6 @@
       "/cheatsheets/quarto_website/index.html",
       "/cheatsheets/git/index.html",
       "/cheatsheets/macos/index.html"
-    ]
-  },
-  {
-    "listing": "/notes.html",
-    "items": [
-      "/notes/rna_faq/index.html"
-    ]
-  },
-  {
-    "listing": "/resources.html",
-    "items": [
-      "/resources/python/index.html"
-    ]
-  },
-  {
-    "listing": "/scripts.html",
-    "items": [
-      "/scripts/fetch_genome/index.html"
     ]
   }
 ]

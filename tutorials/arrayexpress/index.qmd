@@ -1,0 +1,29 @@
+---
+title: "Uploading raw data to ArrayExpress"
+date: 2025-10-09
+date-modified: 2025-10-09
+---
+
+There are multiple ways to upload raw data to ArrayExpress, here is a short tutorial on how to do so from the command line with the FTP protocol. It is based on [this official documentation](https://www.ebi.ac.uk/fg/annotare/help/ftp_upload.html) with small ammendments and explanations.
+
+1. Log into [Annotare](https://www.ebi.ac.uk/fg/annotare/login/) and create a new experiment submission.
+
+2. `cd` into the directory where the data are stored.
+
+3. Connect to ArrayExpress and enter username (`annotare`) password (`annotare1`) combination.
+
+```{.bash filename="Terminal"}
+ftp -p ftp-private.ebi.ac.uk
+```
+
+4. Within the ArrayExpress server, `cd` into the directory ArrayExpress assigned for your repo.
+```{.bash filename="Terminal"}
+cd /.../...
+```
+
+5. `put` files into the remote directory you just navigated to. If using `mput` (for multiple files instead of just one) over `put`, first enter `prompt` to turn the interactive mode off so that there will be no need to confirm transfers.
+
+```{.bash filename="Terminal"}
+prompt
+mput *.fastq.gz
+```

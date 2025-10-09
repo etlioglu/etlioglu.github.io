@@ -70,5 +70,8 @@
   },
   "scratchpad/bash_scripting.qmd": {
     "bash_scripting.html": "6917d94a"
+  },
+  "tutorials/arrayexpress/index.qmd": {
+    "index.html": "4538ab9f"
   }
 }

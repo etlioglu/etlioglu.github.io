@@ -4,7 +4,7 @@
     "href": "tutorials.html",
     "title": "Tutorials",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nA short tutorial on docker\n\n\nMay 12, 2025\n\n\n\n\nSetting environment variables\n\n\nSep 5, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nA short tutorial on docker\n\n\nMay 12, 2025\n\n\n\n\nSetting environment variables\n\n\nSep 5, 2025\n\n\n\n\nUploading raw data to ArrayExpress\n\n\nOct 9, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "tutorials/docker/index.html",
@@ -28,11 +28,221 @@
     "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
   },
   {
-    "objectID": "scripts/fetch_genome/index.html",
-    "href": "scripts/fetch_genome/index.html",
-    "title": "Fetching genomes from Ensembl",
+    "objectID": "scripts.html",
+    "href": "scripts.html",
+    "title": "Scripts",
     "section": "",
-    "text": "Downloads a human/mouse primary assembly and associated annotation in GTF format from Ensembl and checks for data integrity. Inspired from here.\n\n\nfetch_genome.sh\n\n#!/usr/bin/env bash\n\nspecies=\"Human\"\nversion=114\n\nif [ \"${species}\" == \"Human\" ] || [ \"${species}\" == \"human\" ]; then\n    species_short=\"homo_sapiens\"\n    species_long=\"Homo_sapiens.GRCh38\"\nelif [ \"${species}\" == \"Mouse\" ] || [ \"${species}\" == \"mouse\" ]; then\n    species_short=\"mus_musculus\"\n    species_long=\"Mus_musculus.GRCm39\"\nelse\n    echo \"The script works for human or mouse.\"\nfi\n\n# The first argument is the path to the file of interest; FASTA, GTF, ...\n# The second argument is the path to the associated checksum file\nfetch_check() {\n\n    echo -e \"\\nDownloading ${1}...\"\n    wget -q \"${1}\"\n    file=\"$(basename \"${1}\")\"\n\n    calculated_sum=\"$(sum \"${file}\")\"\n    echo \"Calculated checksum: ${calculated_sum}\"\n\n    downloaded_sum=\"$(wget -q -O - \"${2}\" | grep \"${file}\" | cut -d \" \" -f1,2)\"\n    echo \"Downloaded checksum: ${downloaded_sum}\"\n\n    if [ \"${calculated_sum}\" == \"${downloaded_sum}\" ]; then\n        echo \"Checksums match...\"\n    else\n        echo \"CHECKSUMS DO NOT MATCH!\"\n    fi\n\n}\n\nbase_path=\"https://ftp.ensembl.org/pub/release-${version}\"\n\nfasta_path=\"${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz\"\nfasta_sum_path=\"${base_path}/fasta/${species_short}/dna/CHECKSUMS\"\n\nfetch_check \"${fasta_path}\" \"${fasta_sum_path}\"\n\ngtf_path=\"${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz\"\ngtf_sum_path=\"${base_path}/gtf/${species_short}/CHECKSUMS\"\n\nfetch_check \"${gtf_path}\" \"${gtf_sum_path}\""
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nAug 25, 2025\n\n\nFetching genomes from Ensembl\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nRNA-seq FAQs\n\n\nJun 26, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "H. Emre Etlioglu",
+    "section": "",
+    "text": "Molecular biologist turned bioinformatician."
+  },
+  {
+    "objectID": "cheatsheets/rnaseq/index.html",
+    "href": "cheatsheets/rnaseq/index.html",
+    "title": "RNASeq",
+    "section": "",
+    "text": "Prefiltering is not needed when using DESeq2 as results() is performing independent filtering to remove genes with low power (ref).\n\nHowever, you typically don’t need to pre-filter because independent filtering occurs within results() to save you from multiple test correction on genes with no power (see ?results and the vignette section about independent filtering, or the paper). The main reason to pre-filter would be to increase speed. Designs with many samples and many interaction terms can slow down on genes which have very few reads."
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html",
+    "href": "cheatsheets/quarto_website/index.html",
+    "title": "Websites with Quarto",
+    "section": "",
+    "text": "Creating your personal website using Quarto"
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
+    "href": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
+    "title": "Websites with Quarto",
+    "section": "",
+    "text": "Creating your personal website using Quarto"
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html#adding-sections",
+    "href": "cheatsheets/quarto_website/index.html#adding-sections",
+    "title": "Websites with Quarto",
+    "section": "Adding sections",
+    "text": "Adding sections\n\nInspired from Adding a blog to your existing Quarto website\nCreate a subdirectory within the main projrect directory (cheatsheets in this case) and add a _metadata.yml file containing section-specific options (format, etc…):\n\n\n\nTerminal\n\nmkdir cheatsheets && touch cheatsheets/_metadata.yml\n\n\nThe options specified within _metadata.yml will apply to all docs within the cheatsheets folder:\n\n\n\ncheatsheets/_metadata.yml\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n\n\nCreate a listing page within the main project directory (cheatsheets.qmd in this case)\n\n\n\ncheatsheets.qmd\n\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n    fields: [date, title]\n---\n\n\nAdd the newly created listing, cheatsheets.qmd, to the navbar section of _quarto.yml (line 12):\n\n\n\n_quarto.yml\n\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n\n\nAdd a subfolder (quarto_website in this case) to the newly created section and a an index.qmd within that:\n\n\n\nTerminal\n\nmkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd\n\n\nPopulate the newly created quarto document to generate an entry within the newly created section."
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html",
+    "href": "cheatsheets/nextflow/index.html",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#runtime",
+    "href": "cheatsheets/nextflow/index.html#runtime",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#language",
+    "href": "cheatsheets/nextflow/index.html#language",
+    "title": "Nextflow",
+    "section": "Language",
+    "text": "Language\n\nVariables defined by params. can be changed/overridden via command line arguments.\nEvery function applied to a channel is a channel operator.\n.flatten() is the opposite of .collect().\n.view() sends to standard output."
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#configuration",
+    "href": "cheatsheets/nextflow/index.html#configuration",
+    "title": "Nextflow",
+    "section": "Configuration",
+    "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html",
+    "href": "cheatsheets/macos/index.html",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html",
+    "href": "cheatsheets/git/index.html",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#tutorials",
+    "href": "cheatsheets/git/index.html#tutorials",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
+    "href": "cheatsheets/git/index.html#commonly-used-commands",
+    "title": "git",
+    "section": "Commonly used commands",
+    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html",
+    "href": "cheatsheets/maxquant/index.html",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "title": "MaxQuant",
+    "section": "Updating the xml file generated above",
+    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
+  },
+  {
+    "objectID": "cheatsheets/project_management/index.html",
+    "href": "cheatsheets/project_management/index.html",
+    "title": "Project management",
+    "section": "",
+    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
+  },
+  {
+    "objectID": "cheatsheets/r/index.html",
+    "href": "cheatsheets/r/index.html",
+    "title": "R",
+    "section": "",
+    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#running-r",
+    "href": "cheatsheets/r/index.html#running-r",
+    "title": "R",
+    "section": "",
+    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#data-visualization",
+    "href": "cheatsheets/r/index.html#data-visualization",
+    "title": "R",
+    "section": "Data Visualization",
+    "text": "Data Visualization\n\nVisually inspecting a color palette:\n\n\n\nR\n\nlibrary(scales)\npal &lt;- rgb(ddf$r, ddf$g, ddf$b)\nshow_col(pal)"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#statistics",
+    "href": "cheatsheets/r/index.html#statistics",
+    "title": "R",
+    "section": "Statistics",
+    "text": "Statistics\n\nChecking whether the design of an experiment is confounded:\n\n\n\nR\n\n# X is the design matrix\nqr(X)$rank"
+  },
+  {
+    "objectID": "cheatsheets.html",
+    "href": "cheatsheets.html",
+    "title": "Cheatsheets",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/rna_faq/index.html",
+    "href": "notes/rna_faq/index.html",
+    "title": "RNA-seq FAQs",
+    "section": "",
+    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
+    "href": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
+    "title": "RNA-seq FAQs",
+    "section": "",
+    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
+    "href": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
+    "title": "RNA-seq FAQs",
+    "section": "Count file contains floating point numbers",
+    "text": "Count file contains floating point numbers\nThe count file is generated by nfcore/rnaseq using the default path (aligner: STAR, quantification by: Salmon). Salmon “infers” (aggregates) gene counts (actually count estiamtes) from transcript-level count (estimates) and takes gene lengths into account (the gene lengths might differ across samples since not all isoforms could be expressed in a given samples). All in all the resulting count matrix contains floating point numbers as these are just estimates. One can simply round() if feeding the count table to DESeq2, for example nfcore/differentialabundance rounds the count matrix."
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#deseq2-normalization",
+    "href": "notes/rna_faq/index.html#deseq2-normalization",
+    "title": "RNA-seq FAQs",
+    "section": "DESeq2 normalization",
+    "text": "DESeq2 normalization\nDESeq2 uses median of ratios for normalization."
   },
   {
     "objectID": "resources/python/index.html",
@@ -70,221 +280,18 @@
     "text": "Virtual Environments\n\nPython Virtual Environments: A Primer"
   },
   {
-    "objectID": "notes/rna_faq/index.html",
-    "href": "notes/rna_faq/index.html",
-    "title": "RNA-seq FAQs",
+    "objectID": "scripts/fetch_genome/index.html",
+    "href": "scripts/fetch_genome/index.html",
+    "title": "Fetching genomes from Ensembl",
     "section": "",
-    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
+    "text": "Downloads a human/mouse primary assembly and associated annotation in GTF format from Ensembl and checks for data integrity. Inspired from here.\n\n\nfetch_genome.sh\n\n#!/usr/bin/env bash\n\nspecies=\"Human\"\nversion=114\n\nif [ \"${species}\" == \"Human\" ] || [ \"${species}\" == \"human\" ]; then\n    species_short=\"homo_sapiens\"\n    species_long=\"Homo_sapiens.GRCh38\"\nelif [ \"${species}\" == \"Mouse\" ] || [ \"${species}\" == \"mouse\" ]; then\n    species_short=\"mus_musculus\"\n    species_long=\"Mus_musculus.GRCm39\"\nelse\n    echo \"The script works for human or mouse.\"\nfi\n\n# The first argument is the path to the file of interest; FASTA, GTF, ...\n# The second argument is the path to the associated checksum file\nfetch_check() {\n\n    echo -e \"\\nDownloading ${1}...\"\n    wget -q \"${1}\"\n    file=\"$(basename \"${1}\")\"\n\n    calculated_sum=\"$(sum \"${file}\")\"\n    echo \"Calculated checksum: ${calculated_sum}\"\n\n    downloaded_sum=\"$(wget -q -O - \"${2}\" | grep \"${file}\" | cut -d \" \" -f1,2)\"\n    echo \"Downloaded checksum: ${downloaded_sum}\"\n\n    if [ \"${calculated_sum}\" == \"${downloaded_sum}\" ]; then\n        echo \"Checksums match...\"\n    else\n        echo \"CHECKSUMS DO NOT MATCH!\"\n    fi\n\n}\n\nbase_path=\"https://ftp.ensembl.org/pub/release-${version}\"\n\nfasta_path=\"${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz\"\nfasta_sum_path=\"${base_path}/fasta/${species_short}/dna/CHECKSUMS\"\n\nfetch_check \"${fasta_path}\" \"${fasta_sum_path}\"\n\ngtf_path=\"${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz\"\ngtf_sum_path=\"${base_path}/gtf/${species_short}/CHECKSUMS\"\n\nfetch_check \"${gtf_path}\" \"${gtf_sum_path}\""
   },
   {
-    "objectID": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
-    "href": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
-    "title": "RNA-seq FAQs",
+    "objectID": "tutorials/arrayexpress/index.html",
+    "href": "tutorials/arrayexpress/index.html",
+    "title": "Uploading raw data to ArrayExpress",
     "section": "",
-    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
-  },
-  {
-    "objectID": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
-    "href": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
-    "title": "RNA-seq FAQs",
-    "section": "Count file contains floating point numbers",
-    "text": "Count file contains floating point numbers\nThe count file is generated by nfcore/rnaseq using the default path (aligner: STAR, quantification by: Salmon). Salmon “infers” (aggregates) gene counts (actually count estiamtes) from transcript-level count (estimates) and takes gene lengths into account (the gene lengths might differ across samples since not all isoforms could be expressed in a given samples). All in all the resulting count matrix contains floating point numbers as these are just estimates. One can simply round() if feeding the count table to DESeq2, for example nfcore/differentialabundance rounds the count matrix."
-  },
-  {
-    "objectID": "notes/rna_faq/index.html#deseq2-normalization",
-    "href": "notes/rna_faq/index.html#deseq2-normalization",
-    "title": "RNA-seq FAQs",
-    "section": "DESeq2 normalization",
-    "text": "DESeq2 normalization\nDESeq2 uses median of ratios for normalization."
-  },
-  {
-    "objectID": "cheatsheets.html",
-    "href": "cheatsheets.html",
-    "title": "Cheatsheets",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html",
-    "href": "cheatsheets/r/index.html",
-    "title": "R",
-    "section": "",
-    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#running-r",
-    "href": "cheatsheets/r/index.html#running-r",
-    "title": "R",
-    "section": "",
-    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#data-visualization",
-    "href": "cheatsheets/r/index.html#data-visualization",
-    "title": "R",
-    "section": "Data Visualization",
-    "text": "Data Visualization\n\nVisually inspecting a color palette:\n\n\n\nR\n\nlibrary(scales)\npal &lt;- rgb(ddf$r, ddf$g, ddf$b)\nshow_col(pal)"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#statistics",
-    "href": "cheatsheets/r/index.html#statistics",
-    "title": "R",
-    "section": "Statistics",
-    "text": "Statistics\n\nChecking whether the design of an experiment is confounded:\n\n\n\nR\n\n# X is the design matrix\nqr(X)$rank"
-  },
-  {
-    "objectID": "cheatsheets/project_management/index.html",
-    "href": "cheatsheets/project_management/index.html",
-    "title": "Project management",
-    "section": "",
-    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html",
-    "href": "cheatsheets/maxquant/index.html",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "title": "MaxQuant",
-    "section": "Updating the xml file generated above",
-    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html",
-    "href": "cheatsheets/git/index.html",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#tutorials",
-    "href": "cheatsheets/git/index.html#tutorials",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
-    "href": "cheatsheets/git/index.html#commonly-used-commands",
-    "title": "git",
-    "section": "Commonly used commands",
-    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html",
-    "href": "cheatsheets/macos/index.html",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html",
-    "href": "cheatsheets/nextflow/index.html",
-    "title": "Nextflow",
-    "section": "",
-    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#runtime",
-    "href": "cheatsheets/nextflow/index.html#runtime",
-    "title": "Nextflow",
-    "section": "",
-    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#language",
-    "href": "cheatsheets/nextflow/index.html#language",
-    "title": "Nextflow",
-    "section": "Language",
-    "text": "Language\n\nVariables defined by params. can be changed/overridden via command line arguments.\nEvery function applied to a channel is a channel operator.\n.flatten() is the opposite of .collect().\n.view() sends to standard output."
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#configuration",
-    "href": "cheatsheets/nextflow/index.html#configuration",
-    "title": "Nextflow",
-    "section": "Configuration",
-    "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html",
-    "href": "cheatsheets/quarto_website/index.html",
-    "title": "Websites with Quarto",
-    "section": "",
-    "text": "Creating your personal website using Quarto"
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
-    "href": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
-    "title": "Websites with Quarto",
-    "section": "",
-    "text": "Creating your personal website using Quarto"
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html#adding-sections",
-    "href": "cheatsheets/quarto_website/index.html#adding-sections",
-    "title": "Websites with Quarto",
-    "section": "Adding sections",
-    "text": "Adding sections\n\nInspired from Adding a blog to your existing Quarto website\nCreate a subdirectory within the main projrect directory (cheatsheets in this case) and add a _metadata.yml file containing section-specific options (format, etc…):\n\n\n\nTerminal\n\nmkdir cheatsheets && touch cheatsheets/_metadata.yml\n\n\nThe options specified within _metadata.yml will apply to all docs within the cheatsheets folder:\n\n\n\ncheatsheets/_metadata.yml\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n\n\nCreate a listing page within the main project directory (cheatsheets.qmd in this case)\n\n\n\ncheatsheets.qmd\n\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n    fields: [date, title]\n---\n\n\nAdd the newly created listing, cheatsheets.qmd, to the navbar section of _quarto.yml (line 12):\n\n\n\n_quarto.yml\n\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n\n\nAdd a subfolder (quarto_website in this case) to the newly created section and a an index.qmd within that:\n\n\n\nTerminal\n\nmkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd\n\n\nPopulate the newly created quarto document to generate an entry within the newly created section."
-  },
-  {
-    "objectID": "cheatsheets/rnaseq/index.html",
-    "href": "cheatsheets/rnaseq/index.html",
-    "title": "RNASeq",
-    "section": "",
-    "text": "Prefiltering is not needed when using DESeq2 as results() is performing independent filtering to remove genes with low power (ref).\n\nHowever, you typically don’t need to pre-filter because independent filtering occurs within results() to save you from multiple test correction on genes with no power (see ?results and the vignette section about independent filtering, or the paper). The main reason to pre-filter would be to increase speed. Designs with many samples and many interaction terms can slow down on genes which have very few reads."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "H. Emre Etlioglu",
-    "section": "",
-    "text": "Molecular biologist turned bioinformatician."
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nRNA-seq FAQs\n\n\nJun 26, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "scripts.html",
-    "href": "scripts.html",
-    "title": "Scripts",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nAug 25, 2025\n\n\nFetching genomes from Ensembl\n\n\n\n\n\nNo matching items"
+    "text": "There are multiple ways to upload raw data to ArrayExpress, here is a short tutorial on how to do so from the command line with the FTP protocol. It is based on this official documentation with small ammendments and explanations.\n\nLog into Annotare and create a new experiment submission.\ncd into the directory where the data are stored.\nConnect to ArrayExpress and enter username (annotare) password (annotare1) combination.\n\n\n\nTerminal\n\nftp -p ftp-private.ebi.ac.uk\n\n\nWithin the ArrayExpress server, cd into the directory ArrayExpress assigned for your repo.\n\n\n\nTerminal\n\ncd /.../...\n\n\nput files into the remote directory you just navigated to. If using mput (for multiple files instead of just one) over put, first enter prompt to turn the interactive mode off so that there will be no need to confirm transfers.\n\n\n\nTerminal\n\nprompt\nmput *.fastq.gz"
   },
   {
     "objectID": "tutorials/env_vars/index.html",
