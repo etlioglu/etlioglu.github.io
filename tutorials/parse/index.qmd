@@ -1,0 +1,21 @@
+---
+title: "Partitioning Parse scRNA-seq sub-library FASTQs"
+date: 2025-10-23
+date-modified: 2025-10-23
+---
+
+Parse Biosciences' split-pool combinatorial barcoding generates FASTQ files per sub-library rather than per sample. Moreover, the fact that this technique is capable of millions of cells, there are cases where different independent projects are bundled within the same run. The way to go from here when it comes to upload project specific raw data to ArrayExpress:
+
+1- Partition sub-library FASTQs into project specific sub-library FASTQs using `fastq_sep_groups_v0.5.py`, the script is developed by Parse Biosciences. This script is not shared here as the user is encouraged to use the latest version. The fact that the pipeline used for preprocessing Parse scRNA-seq output is working on the sub-library level and not on the sample level and also it is not possible to generate sample specific FASTQs due to the way barcoding/multiplexing is done in split-seq, no sample specific FASTQs are generated. 
+
+```{.bash filename="Terminal"}
+find ../data/* -type f -name '*R1*.fastq.gz' -print0 | xargs -0 -P 16 -I {} python ../fastq_sep_groups_v0.5.py -c v3 -f "{}" --group GBM A1-D4 --group HO D5-H12
+```
+
+- `find` is used to generate a list of `R1`s, `R2` paths are derived from that. `find .. -print0 | xargs -0 ...` pattern allows this works on non-alphanumeric filenames although this is not expected in bioinformatics/sequencing context.
+
+- In the example above, `xargs` initiates 16 processes, each starting with one sub-library R1 FASTQ.
+
+- Parse's partitioning script has arguments `-c` for "chemistry", `-f` to specify an input file and `--group` for specifying wells related to different projects/samples.
+
+2- The fact that sample-specific FASTQs are not meaningful for Parse scRNA-seq data, ArrayExpress expects sub-library FASTQs as if they are samples. In that regard, pretty much all feature columns would be filled in as "mixed" because more often than not (depending on how the libraries are prepared of course), all sub-libraries contain cells from all samples. To ensure reproducibility, a separate CSV file is supplied as sample metadata that will be used along with the output of Parse's preprocessing pipeline.

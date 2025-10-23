@@ -73,5 +73,8 @@
   },
   "tutorials/arrayexpress/index.qmd": {
     "index.html": "4538ab9f"
+  },
+  "tutorials/parse/index.qmd": {
+    "index.html": "29bcf649"
   }
 }

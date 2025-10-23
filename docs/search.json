@@ -4,245 +4,28 @@
     "href": "tutorials.html",
     "title": "Tutorials",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nA short tutorial on docker\n\n\nMay 12, 2025\n\n\n\n\nSetting environment variables\n\n\nSep 5, 2025\n\n\n\n\nUploading raw data to ArrayExpress\n\n\nOct 9, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nA short tutorial on docker\n\n\nMay 12, 2025\n\n\n\n\nPartitioning Parse scRNA-seq sub-library FASTQs\n\n\nOct 23, 2025\n\n\n\n\nSetting environment variables\n\n\nSep 5, 2025\n\n\n\n\nUploading raw data to ArrayExpress\n\n\nOct 9, 2025\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "tutorials/docker/index.html",
-    "href": "tutorials/docker/index.html",
-    "title": "A short tutorial on docker",
+    "objectID": "tutorials/env_vars/index.html",
+    "href": "tutorials/env_vars/index.html",
+    "title": "Setting environment variables",
     "section": "",
-    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below (ref):\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+    "text": "TLDR: Even after using different *nix operating systems like Ubuntu, CentOS, Oracle Linux, macos for many years, I am still not sure about the best way to manipulate environment variables but here is what works for me for my bioinformatics focused use case. There are countless resources such as this one but more often than not, they teach you “how to fish” but when all you would like to accomplish is to be able to run the new software you just installed, here is your fish: Prepend the $PATH variable with the new path and do that within ~/.bashrc (or ~/.zshrc if you are using zsh shell) and make sure ~/.bashrc is sourced from ~/.bash_profile (or ~/.zprofile for that matter).*\nOne can set (environment) variables within different files in a GNU/Linux operating system, for example ~/.pam_environment, ~/.profile, ~/.bashrc, ~/.bash_profile, and ~/.bash_login are a few but not all.\nWhere to set (environment) variables depends on the shell type. For simplicity, we will ignore non-interactive shells and will focus only on interacive login shells and interactive non-login shells. The former is the one initiated at login, for example when you login to a server via ssh using putty. You get the latter when you open up a new terminal (bash session) when you are already logged in, for example when opening a new terminal within VSCode. (Actually you can change VSCode settings to get a login shell so not all VSCode shells are non-login.)\nWhat matters to you as a user comes from the fact that login shells and non-login shells are sourcing different sets of files. For interactive login shells, /etc/profile is sourced followed by the first of the following: ~/.bash_profile, ~/.bash_login, ~/.profile. This means that ~/.profile would not be sourced if ~/.bash_profile or ~/.bash_login exists. For interactive non-login shells, ~/.bashrc is sourced.\nAs you must have realized, there is no file that is invoked (or sourced) for login as well as non-login shells. The workaround is setting environment varibles in ~/.bashrc and then have your ~/.profile or ~./bash_profile source your ~/.bashrc:\n\n\n~/.bashrc\n\n# .bashrc\n\n# User specific environment\nPATH=\"$PATH:$HOME/.local/bin\"\nexport PATH\n\nThe newly added path of $HOME/.local/bin is appended to $PATH, this is advised over prepending $PATH. Thanks to this, the typed command/script/app is first searched within whatever is already on $PATH and only after that the newly added path is checked.\n\n\n~/.bash_profile\n\n# .bash_profile\n\n# Get the aliases and functions\nif [ -f ~/.bashrc ]; then\n        . ~/.bashrc\nfi\n\n# User specific environment and startup programs\n...\n\nThe set-up above ensures that non-login shells as well as login shells would inherit the changes made in ~/.bashrc.\nIf for some reason you are using bash and zsh together, you could add/modify environment variables in ~/.profile, source this from ~/.bash_login as well as ~/.zsh_login. In that scenario you can opt for log-in shells from VSCode but I am not sure if it is worth it especially when you are using zsh because of oh-my-zsh. oh-my-bash offers pretty much the same functionality albeit not as customizable.\n\n\nsettings.json\n\n\"terminal.integrated.profiles.linux\": {\n      \"bash\": {\n        \"path\": \"bash\",\n        \"icon\": \"terminal-bash\",\n        \"args\": [\"--login\"]\n      },\n      \"zsh\": {\n        \"path\": \"zsh\",\n        \"args\": [\"--login\"]\n      },\n      ...\n    },\n...\n\n* The caveat above is, quoting from the Ubuntu docs: “Shell config files such as ~/.bashrc, ~/.bash_profile, and ~/.bash_login are often suggested for setting environment variables. While this may work on Bash shells for programs started from the shell, variables set in those files are not available by default to programs started from the graphical environment in a desktop session.” In that respect, the better but little bit more convoluted set-up is setting/modifying $PATH (or the like) within ~/.profile (“since it gets executed automatically by the DisplayManager during the start-up process desktop session as well as by the login shell when one logs in from the textual console”), have it sourced from ~/.bash_profile (or get rid of ~/.bash_profile altogehter but I am not doing that because it comes rather populated with different GNU/Linux flavors) and finally have ~/.bash_profile sourced from within ~/.bashrc."
   },
   {
-    "objectID": "tutorials/docker/index.html#set-up",
-    "href": "tutorials/docker/index.html#set-up",
-    "title": "A short tutorial on docker",
+    "objectID": "tutorials/arrayexpress/index.html",
+    "href": "tutorials/arrayexpress/index.html",
+    "title": "Uploading raw data to ArrayExpress",
     "section": "",
-    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below (ref):\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+    "text": "There are multiple ways to upload raw data to ArrayExpress, here is a short tutorial on how to do so from the command line with the FTP protocol. It is based on this official documentation with small ammendments and explanations.\n\nLog into Annotare and create a new experiment submission.\ncd into the directory where the data are stored.\nConnect to ArrayExpress and enter username (annotare) password (annotare1) combination.\n\n\n\nTerminal\n\nftp -p ftp-private.ebi.ac.uk\n\n\nWithin the ArrayExpress server, cd into the directory ArrayExpress assigned for your repo.\n\n\n\nTerminal\n\ncd /.../...\n\n\nput files into the remote directory you just navigated to. If using mput (for multiple files instead of just one) over put, first enter prompt to turn the interactive mode off so that there will be no need to confirm transfers.\n\n\n\nTerminal\n\nprompt\nmput *.fastq.gz"
   },
   {
-    "objectID": "tutorials/docker/index.html#pulling-a-docker-image",
-    "href": "tutorials/docker/index.html#pulling-a-docker-image",
-    "title": "A short tutorial on docker",
-    "section": "Pulling a docker image",
-    "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
-  },
-  {
-    "objectID": "scripts.html",
-    "href": "scripts.html",
-    "title": "Scripts",
+    "objectID": "scripts/fetch_genome/index.html",
+    "href": "scripts/fetch_genome/index.html",
+    "title": "Fetching genomes from Ensembl",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nAug 25, 2025\n\n\nFetching genomes from Ensembl\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nRNA-seq FAQs\n\n\nJun 26, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "H. Emre Etlioglu",
-    "section": "",
-    "text": "Molecular biologist turned bioinformatician."
-  },
-  {
-    "objectID": "cheatsheets/rnaseq/index.html",
-    "href": "cheatsheets/rnaseq/index.html",
-    "title": "RNASeq",
-    "section": "",
-    "text": "Prefiltering is not needed when using DESeq2 as results() is performing independent filtering to remove genes with low power (ref).\n\nHowever, you typically don’t need to pre-filter because independent filtering occurs within results() to save you from multiple test correction on genes with no power (see ?results and the vignette section about independent filtering, or the paper). The main reason to pre-filter would be to increase speed. Designs with many samples and many interaction terms can slow down on genes which have very few reads."
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html",
-    "href": "cheatsheets/quarto_website/index.html",
-    "title": "Websites with Quarto",
-    "section": "",
-    "text": "Creating your personal website using Quarto"
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
-    "href": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
-    "title": "Websites with Quarto",
-    "section": "",
-    "text": "Creating your personal website using Quarto"
-  },
-  {
-    "objectID": "cheatsheets/quarto_website/index.html#adding-sections",
-    "href": "cheatsheets/quarto_website/index.html#adding-sections",
-    "title": "Websites with Quarto",
-    "section": "Adding sections",
-    "text": "Adding sections\n\nInspired from Adding a blog to your existing Quarto website\nCreate a subdirectory within the main projrect directory (cheatsheets in this case) and add a _metadata.yml file containing section-specific options (format, etc…):\n\n\n\nTerminal\n\nmkdir cheatsheets && touch cheatsheets/_metadata.yml\n\n\nThe options specified within _metadata.yml will apply to all docs within the cheatsheets folder:\n\n\n\ncheatsheets/_metadata.yml\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n\n\nCreate a listing page within the main project directory (cheatsheets.qmd in this case)\n\n\n\ncheatsheets.qmd\n\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n    fields: [date, title]\n---\n\n\nAdd the newly created listing, cheatsheets.qmd, to the navbar section of _quarto.yml (line 12):\n\n\n\n_quarto.yml\n\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n\n\nAdd a subfolder (quarto_website in this case) to the newly created section and a an index.qmd within that:\n\n\n\nTerminal\n\nmkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd\n\n\nPopulate the newly created quarto document to generate an entry within the newly created section."
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html",
-    "href": "cheatsheets/nextflow/index.html",
-    "title": "Nextflow",
-    "section": "",
-    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#runtime",
-    "href": "cheatsheets/nextflow/index.html#runtime",
-    "title": "Nextflow",
-    "section": "",
-    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#language",
-    "href": "cheatsheets/nextflow/index.html#language",
-    "title": "Nextflow",
-    "section": "Language",
-    "text": "Language\n\nVariables defined by params. can be changed/overridden via command line arguments.\nEvery function applied to a channel is a channel operator.\n.flatten() is the opposite of .collect().\n.view() sends to standard output."
-  },
-  {
-    "objectID": "cheatsheets/nextflow/index.html#configuration",
-    "href": "cheatsheets/nextflow/index.html#configuration",
-    "title": "Nextflow",
-    "section": "Configuration",
-    "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html",
-    "href": "cheatsheets/macos/index.html",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
-    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
-    "title": "macos",
-    "section": "",
-    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html",
-    "href": "cheatsheets/git/index.html",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#tutorials",
-    "href": "cheatsheets/git/index.html#tutorials",
-    "title": "git",
-    "section": "",
-    "text": "Getting Git right by Atlassian"
-  },
-  {
-    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
-    "href": "cheatsheets/git/index.html#commonly-used-commands",
-    "title": "git",
-    "section": "Commonly used commands",
-    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html",
-    "href": "cheatsheets/maxquant/index.html",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
-    "title": "MaxQuant",
-    "section": "",
-    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
-  },
-  {
-    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
-    "title": "MaxQuant",
-    "section": "Updating the xml file generated above",
-    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
-  },
-  {
-    "objectID": "cheatsheets/project_management/index.html",
-    "href": "cheatsheets/project_management/index.html",
-    "title": "Project management",
-    "section": "",
-    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
-  },
-  {
-    "objectID": "cheatsheets/r/index.html",
-    "href": "cheatsheets/r/index.html",
-    "title": "R",
-    "section": "",
-    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#running-r",
-    "href": "cheatsheets/r/index.html#running-r",
-    "title": "R",
-    "section": "",
-    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#data-visualization",
-    "href": "cheatsheets/r/index.html#data-visualization",
-    "title": "R",
-    "section": "Data Visualization",
-    "text": "Data Visualization\n\nVisually inspecting a color palette:\n\n\n\nR\n\nlibrary(scales)\npal &lt;- rgb(ddf$r, ddf$g, ddf$b)\nshow_col(pal)"
-  },
-  {
-    "objectID": "cheatsheets/r/index.html#statistics",
-    "href": "cheatsheets/r/index.html#statistics",
-    "title": "R",
-    "section": "Statistics",
-    "text": "Statistics\n\nChecking whether the design of an experiment is confounded:\n\n\n\nR\n\n# X is the design matrix\nqr(X)$rank"
-  },
-  {
-    "objectID": "cheatsheets.html",
-    "href": "cheatsheets.html",
-    "title": "Cheatsheets",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "notes/rna_faq/index.html",
-    "href": "notes/rna_faq/index.html",
-    "title": "RNA-seq FAQs",
-    "section": "",
-    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
-  },
-  {
-    "objectID": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
-    "href": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
-    "title": "RNA-seq FAQs",
-    "section": "",
-    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
-  },
-  {
-    "objectID": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
-    "href": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
-    "title": "RNA-seq FAQs",
-    "section": "Count file contains floating point numbers",
-    "text": "Count file contains floating point numbers\nThe count file is generated by nfcore/rnaseq using the default path (aligner: STAR, quantification by: Salmon). Salmon “infers” (aggregates) gene counts (actually count estiamtes) from transcript-level count (estimates) and takes gene lengths into account (the gene lengths might differ across samples since not all isoforms could be expressed in a given samples). All in all the resulting count matrix contains floating point numbers as these are just estimates. One can simply round() if feeding the count table to DESeq2, for example nfcore/differentialabundance rounds the count matrix."
-  },
-  {
-    "objectID": "notes/rna_faq/index.html#deseq2-normalization",
-    "href": "notes/rna_faq/index.html#deseq2-normalization",
-    "title": "RNA-seq FAQs",
-    "section": "DESeq2 normalization",
-    "text": "DESeq2 normalization\nDESeq2 uses median of ratios for normalization."
+    "text": "Downloads a human/mouse primary assembly and associated annotation in GTF format from Ensembl and checks for data integrity. Inspired from here.\n\n\nfetch_genome.sh\n\n#!/usr/bin/env bash\n\nspecies=\"Human\"\nversion=114\n\nif [ \"${species}\" == \"Human\" ] || [ \"${species}\" == \"human\" ]; then\n    species_short=\"homo_sapiens\"\n    species_long=\"Homo_sapiens.GRCh38\"\nelif [ \"${species}\" == \"Mouse\" ] || [ \"${species}\" == \"mouse\" ]; then\n    species_short=\"mus_musculus\"\n    species_long=\"Mus_musculus.GRCm39\"\nelse\n    echo \"The script works for human or mouse.\"\nfi\n\n# The first argument is the path to the file of interest; FASTA, GTF, ...\n# The second argument is the path to the associated checksum file\nfetch_check() {\n\n    echo -e \"\\nDownloading ${1}...\"\n    wget -q \"${1}\"\n    file=\"$(basename \"${1}\")\"\n\n    calculated_sum=\"$(sum \"${file}\")\"\n    echo \"Calculated checksum: ${calculated_sum}\"\n\n    downloaded_sum=\"$(wget -q -O - \"${2}\" | grep \"${file}\" | cut -d \" \" -f1,2)\"\n    echo \"Downloaded checksum: ${downloaded_sum}\"\n\n    if [ \"${calculated_sum}\" == \"${downloaded_sum}\" ]; then\n        echo \"Checksums match...\"\n    else\n        echo \"CHECKSUMS DO NOT MATCH!\"\n    fi\n\n}\n\nbase_path=\"https://ftp.ensembl.org/pub/release-${version}\"\n\nfasta_path=\"${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz\"\nfasta_sum_path=\"${base_path}/fasta/${species_short}/dna/CHECKSUMS\"\n\nfetch_check \"${fasta_path}\" \"${fasta_sum_path}\"\n\ngtf_path=\"${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz\"\ngtf_sum_path=\"${base_path}/gtf/${species_short}/CHECKSUMS\"\n\nfetch_check \"${gtf_path}\" \"${gtf_sum_path}\""
   },
   {
     "objectID": "resources/python/index.html",
@@ -280,24 +63,248 @@
     "text": "Virtual Environments\n\nPython Virtual Environments: A Primer"
   },
   {
-    "objectID": "scripts/fetch_genome/index.html",
-    "href": "scripts/fetch_genome/index.html",
-    "title": "Fetching genomes from Ensembl",
+    "objectID": "notes/rna_faq/index.html",
+    "href": "notes/rna_faq/index.html",
+    "title": "RNA-seq FAQs",
     "section": "",
-    "text": "Downloads a human/mouse primary assembly and associated annotation in GTF format from Ensembl and checks for data integrity. Inspired from here.\n\n\nfetch_genome.sh\n\n#!/usr/bin/env bash\n\nspecies=\"Human\"\nversion=114\n\nif [ \"${species}\" == \"Human\" ] || [ \"${species}\" == \"human\" ]; then\n    species_short=\"homo_sapiens\"\n    species_long=\"Homo_sapiens.GRCh38\"\nelif [ \"${species}\" == \"Mouse\" ] || [ \"${species}\" == \"mouse\" ]; then\n    species_short=\"mus_musculus\"\n    species_long=\"Mus_musculus.GRCm39\"\nelse\n    echo \"The script works for human or mouse.\"\nfi\n\n# The first argument is the path to the file of interest; FASTA, GTF, ...\n# The second argument is the path to the associated checksum file\nfetch_check() {\n\n    echo -e \"\\nDownloading ${1}...\"\n    wget -q \"${1}\"\n    file=\"$(basename \"${1}\")\"\n\n    calculated_sum=\"$(sum \"${file}\")\"\n    echo \"Calculated checksum: ${calculated_sum}\"\n\n    downloaded_sum=\"$(wget -q -O - \"${2}\" | grep \"${file}\" | cut -d \" \" -f1,2)\"\n    echo \"Downloaded checksum: ${downloaded_sum}\"\n\n    if [ \"${calculated_sum}\" == \"${downloaded_sum}\" ]; then\n        echo \"Checksums match...\"\n    else\n        echo \"CHECKSUMS DO NOT MATCH!\"\n    fi\n\n}\n\nbase_path=\"https://ftp.ensembl.org/pub/release-${version}\"\n\nfasta_path=\"${base_path}/fasta/${species_short}/dna/${species_long}.dna_sm.primary_assembly.fa.gz\"\nfasta_sum_path=\"${base_path}/fasta/${species_short}/dna/CHECKSUMS\"\n\nfetch_check \"${fasta_path}\" \"${fasta_sum_path}\"\n\ngtf_path=\"${base_path}/gtf/${species_short}/${species_long}.${version}.gtf.gz\"\ngtf_sum_path=\"${base_path}/gtf/${species_short}/CHECKSUMS\"\n\nfetch_check \"${gtf_path}\" \"${gtf_sum_path}\""
+    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
   },
   {
-    "objectID": "tutorials/arrayexpress/index.html",
-    "href": "tutorials/arrayexpress/index.html",
-    "title": "Uploading raw data to ArrayExpress",
+    "objectID": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
+    "href": "notes/rna_faq/index.html#nfcorernaseq-vs-nfcoredifferentialabundance",
+    "title": "RNA-seq FAQs",
     "section": "",
-    "text": "There are multiple ways to upload raw data to ArrayExpress, here is a short tutorial on how to do so from the command line with the FTP protocol. It is based on this official documentation with small ammendments and explanations.\n\nLog into Annotare and create a new experiment submission.\ncd into the directory where the data are stored.\nConnect to ArrayExpress and enter username (annotare) password (annotare1) combination.\n\n\n\nTerminal\n\nftp -p ftp-private.ebi.ac.uk\n\n\nWithin the ArrayExpress server, cd into the directory ArrayExpress assigned for your repo.\n\n\n\nTerminal\n\ncd /.../...\n\n\nput files into the remote directory you just navigated to. If using mput (for multiple files instead of just one) over put, first enter prompt to turn the interactive mode off so that there will be no need to confirm transfers.\n\n\n\nTerminal\n\nprompt\nmput *.fastq.gz"
+    "text": "nfcore/rnaseq is used for pre-processing, specifically generating a count table from the FASTQ files. nfcore/differentialabundance is then used for the differential expression/abundance analysis, that is comparing expression of genes across different conditions."
   },
   {
-    "objectID": "tutorials/env_vars/index.html",
-    "href": "tutorials/env_vars/index.html",
-    "title": "Setting environment variables",
+    "objectID": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
+    "href": "notes/rna_faq/index.html#count-file-contains-floating-point-numbers",
+    "title": "RNA-seq FAQs",
+    "section": "Count file contains floating point numbers",
+    "text": "Count file contains floating point numbers\nThe count file is generated by nfcore/rnaseq using the default path (aligner: STAR, quantification by: Salmon). Salmon “infers” (aggregates) gene counts (actually count estiamtes) from transcript-level count (estimates) and takes gene lengths into account (the gene lengths might differ across samples since not all isoforms could be expressed in a given samples). All in all the resulting count matrix contains floating point numbers as these are just estimates. One can simply round() if feeding the count table to DESeq2, for example nfcore/differentialabundance rounds the count matrix."
+  },
+  {
+    "objectID": "notes/rna_faq/index.html#deseq2-normalization",
+    "href": "notes/rna_faq/index.html#deseq2-normalization",
+    "title": "RNA-seq FAQs",
+    "section": "DESeq2 normalization",
+    "text": "DESeq2 normalization\nDESeq2 uses median of ratios for normalization."
+  },
+  {
+    "objectID": "cheatsheets.html",
+    "href": "cheatsheets.html",
+    "title": "Cheatsheets",
     "section": "",
-    "text": "TLDR: Even after using different *nix operating systems like Ubuntu, CentOS, Oracle Linux, macos for many years, I am still not sure about the best way to manipulate environment variables but here is what works for me for my bioinformatics focused use case. There are countless resources such as this one but more often than not, they teach you “how to fish” but when all you would like to accomplish is to be able to run the new software you just installed, here is your fish: Prepend the $PATH variable with the new path and do that within ~/.bashrc (or ~/.zshrc if you are using zsh shell) and make sure ~/.bashrc is sourced from ~/.bash_profile (or ~/.zprofile for that matter).*\nOne can set (environment) variables within different files in a GNU/Linux operating system, for example ~/.pam_environment, ~/.profile, ~/.bashrc, ~/.bash_profile, and ~/.bash_login are a few but not all.\nWhere to set (environment) variables depends on the shell type. For simplicity, we will ignore non-interactive shells and will focus only on interacive login shells and interactive non-login shells. The former is the one initiated at login, for example when you login to a server via ssh using putty. You get the latter when you open up a new terminal (bash session) when you are already logged in, for example when opening a new terminal within VSCode. (Actually you can change VSCode settings to get a login shell so not all VSCode shells are non-login.)\nWhat matters to you as a user comes from the fact that login shells and non-login shells are sourcing different sets of files. For interactive login shells, /etc/profile is sourced followed by the first of the following: ~/.bash_profile, ~/.bash_login, ~/.profile. This means that ~/.profile would not be sourced if ~/.bash_profile or ~/.bash_login exists. For interactive non-login shells, ~/.bashrc is sourced.\nAs you must have realized, there is no file that is invoked (or sourced) for login as well as non-login shells. The workaround is setting environment varibles in ~/.bashrc and then have your ~/.profile or ~./bash_profile source your ~/.bashrc:\n\n\n~/.bashrc\n\n# .bashrc\n\n# User specific environment\nPATH=\"$PATH:$HOME/.local/bin\"\nexport PATH\n\nThe newly added path of $HOME/.local/bin is appended to $PATH, this is advised over prepending $PATH. Thanks to this, the typed command/script/app is first searched within whatever is already on $PATH and only after that the newly added path is checked.\n\n\n~/.bash_profile\n\n# .bash_profile\n\n# Get the aliases and functions\nif [ -f ~/.bashrc ]; then\n        . ~/.bashrc\nfi\n\n# User specific environment and startup programs\n...\n\nThe set-up above ensures that non-login shells as well as login shells would inherit the changes made in ~/.bashrc.\nIf for some reason you are using bash and zsh together, you could add/modify environment variables in ~/.profile, source this from ~/.bash_login as well as ~/.zsh_login. In that scenario you can opt for log-in shells from VSCode but I am not sure if it is worth it especially when you are using zsh because of oh-my-zsh. oh-my-bash offers pretty much the same functionality albeit not as customizable.\n\n\nsettings.json\n\n\"terminal.integrated.profiles.linux\": {\n      \"bash\": {\n        \"path\": \"bash\",\n        \"icon\": \"terminal-bash\",\n        \"args\": [\"--login\"]\n      },\n      \"zsh\": {\n        \"path\": \"zsh\",\n        \"args\": [\"--login\"]\n      },\n      ...\n    },\n...\n\n* The caveat above is, quoting from the Ubuntu docs: “Shell config files such as ~/.bashrc, ~/.bash_profile, and ~/.bash_login are often suggested for setting environment variables. While this may work on Bash shells for programs started from the shell, variables set in those files are not available by default to programs started from the graphical environment in a desktop session.” In that respect, the better but little bit more convoluted set-up is setting/modifying $PATH (or the like) within ~/.profile (“since it gets executed automatically by the DisplayManager during the start-up process desktop session as well as by the login shell when one logs in from the textual console”), have it sourced from ~/.bash_profile (or get rid of ~/.bash_profile altogehter but I am not doing that because it comes rather populated with different GNU/Linux flavors) and finally have ~/.bash_profile sourced from within ~/.bashrc."
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nMaxQuant\n\n\nMay 13, 2025\n\n\n\n\nNextflow\n\n\nMay 13, 2025\n\n\n\n\nProject management\n\n\nJun 25, 2025\n\n\n\n\nR\n\n\nMay 13, 2025\n\n\n\n\nRNASeq\n\n\nMay 13, 2025\n\n\n\n\nWebsites with Quarto\n\n\nMay 12, 2025\n\n\n\n\ngit\n\n\nMay 13, 2025\n\n\n\n\nmacos\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html",
+    "href": "cheatsheets/r/index.html",
+    "title": "R",
+    "section": "",
+    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#running-r",
+    "href": "cheatsheets/r/index.html#running-r",
+    "title": "R",
+    "section": "",
+    "text": "Running an R script via the terminal and directing outputs to “out” and “error” files:\n\n\n\nTerminal\n\nnohup Rscript my-r-script.r &gt; output.out 2&gt; error.err &"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#data-visualization",
+    "href": "cheatsheets/r/index.html#data-visualization",
+    "title": "R",
+    "section": "Data Visualization",
+    "text": "Data Visualization\n\nVisually inspecting a color palette:\n\n\n\nR\n\nlibrary(scales)\npal &lt;- rgb(ddf$r, ddf$g, ddf$b)\nshow_col(pal)"
+  },
+  {
+    "objectID": "cheatsheets/r/index.html#statistics",
+    "href": "cheatsheets/r/index.html#statistics",
+    "title": "R",
+    "section": "Statistics",
+    "text": "Statistics\n\nChecking whether the design of an experiment is confounded:\n\n\n\nR\n\n# X is the design matrix\nqr(X)$rank"
+  },
+  {
+    "objectID": "cheatsheets/project_management/index.html",
+    "href": "cheatsheets/project_management/index.html",
+    "title": "Project management",
+    "section": "",
+    "text": "Create a git repo.\nCheck git credentials within the project repo upon cloning:\n\n\n\nTerminal\n\ngit config user.name\ngit config user.email\n\n\nIf necessary, change git credentials at the repo level:\n\n\n\nTerminal\n\ngit config user.name \"...\"\ngit config user.email \"...@...\"\n\n\nIf necessary, change git credentials globally:\n\n\n\nTerminal\n\ngit config --global user.name \"...\"\ngit config ---global user.email \"...@...\"\n\n\nCreate a Teams/Slack channel."
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html",
+    "href": "cheatsheets/maxquant/index.html",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "href": "cheatsheets/maxquant/index.html#starting-a-run-with-the-gui",
+    "title": "MaxQuant",
+    "section": "",
+    "text": "Specify raw data\n\nfill in Experiment or set No fractions\n\nGroup specific parameters:\n\nfor LFQ:\n\nType: Standard, Multiplicity: 1\nLabel-free quantification: LFQ\nDigestion\n\n\nGlobal parameters:\n\nFasta file: Proteome from Uniprot\nTables: mzTab"
+  },
+  {
+    "objectID": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "href": "cheatsheets/maxquant/index.html#updating-the-xml-file-generated-above",
+    "title": "MaxQuant",
+    "section": "Updating the xml file generated above",
+    "text": "Updating the xml file generated above\n\ndotnet MaxQuant xml-from-the-previous-run --changeFolder new-xml fasta-file raw-data-path\n\n\n\nTerminal\n\n.../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar.xml --changeFolder mqpar-modified.xml . .\n\n\nSet number of cores\n\n&lt;numThreads&gt;4&lt;/numThreads&gt;\n\nStarting a run on the server\n\n\n\nTerminal\n\nnohup .../dotnet .../MaxQuant/bin/MaxQuantCmd.dll mqpar-modified.xml &gt; nohup.out 2&gt; nohup.err"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html",
+    "href": "cheatsheets/git/index.html",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#tutorials",
+    "href": "cheatsheets/git/index.html#tutorials",
+    "title": "git",
+    "section": "",
+    "text": "Getting Git right by Atlassian"
+  },
+  {
+    "objectID": "cheatsheets/git/index.html#commonly-used-commands",
+    "href": "cheatsheets/git/index.html#commonly-used-commands",
+    "title": "git",
+    "section": "Commonly used commands",
+    "text": "Commonly used commands\n\nCheck user name\n\n\n\nTerminal\n\ngit config user.name\n\n\nCheck user e-mail\n\n\n\nTerminal\n\ngit config user.email\n\n\nCheck all configs\n\n\n\nTerminal\n\ngit config --list\n\n\nCreate a new branch and switch to it:\n\n\n\nTerminal\n\ngit checkout -b name-of-the-new-branch"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html",
+    "href": "cheatsheets/macos/index.html",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "href": "cheatsheets/macos/index.html#mounting-ext4-filesystem",
+    "title": "macos",
+    "section": "",
+    "text": "After installing ext4fuse (https://hackmylinux.com/2018/02/18/how-to-mount-and-read-a-linux-partition-on-a-mac-ext2-ext3-ext4/):\n\n\n\nTerminal\n\ndiskutil list\nsudo ext4fuse /dev/diskNsN ~/tmp/MY_EXT_PARTITION -o allow_other\n\n\nTo use finder on the mounted filesystem:\n\n\n\nTerminal\n\nopen ~/tmp/\n\n\nUnmounting after use:\n\n\n\nTerminal\n\ndiskutil unmountDisk /dev/diskN"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html",
+    "href": "cheatsheets/nextflow/index.html",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#runtime",
+    "href": "cheatsheets/nextflow/index.html#runtime",
+    "title": "Nextflow",
+    "section": "",
+    "text": "Fetch a particular version of a pipeline:\n\n\n\nTerminal\n\nnextflow pull nf-core/rnaseq -r 3.14.0`\n\n\nHypens:\n\n- for Nextflow options\n-- for pipeline-specific options \n\nFind all previous runs in the current directory:\n\n\n\nTerminal\n\nnextflow log"
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#language",
+    "href": "cheatsheets/nextflow/index.html#language",
+    "title": "Nextflow",
+    "section": "Language",
+    "text": "Language\n\nVariables defined by params. can be changed/overridden via command line arguments.\nEvery function applied to a channel is a channel operator.\n.flatten() is the opposite of .collect().\n.view() sends to standard output."
+  },
+  {
+    "objectID": "cheatsheets/nextflow/index.html#configuration",
+    "href": "cheatsheets/nextflow/index.html#configuration",
+    "title": "Nextflow",
+    "section": "Configuration",
+    "text": "Configuration\n\nConfiguration when done within a nextflow script does not require =.\nConfiguration when done within a config file requires =.\nWithin a config file, whatever is within \" and \" are expanded. ' can be used if expansion is not desired."
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html",
+    "href": "cheatsheets/quarto_website/index.html",
+    "title": "Websites with Quarto",
+    "section": "",
+    "text": "Creating your personal website using Quarto"
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
+    "href": "cheatsheets/quarto_website/index.html#creating-a-website-with-quarto",
+    "title": "Websites with Quarto",
+    "section": "",
+    "text": "Creating your personal website using Quarto"
+  },
+  {
+    "objectID": "cheatsheets/quarto_website/index.html#adding-sections",
+    "href": "cheatsheets/quarto_website/index.html#adding-sections",
+    "title": "Websites with Quarto",
+    "section": "Adding sections",
+    "text": "Adding sections\n\nInspired from Adding a blog to your existing Quarto website\nCreate a subdirectory within the main projrect directory (cheatsheets in this case) and add a _metadata.yml file containing section-specific options (format, etc…):\n\n\n\nTerminal\n\nmkdir cheatsheets && touch cheatsheets/_metadata.yml\n\n\nThe options specified within _metadata.yml will apply to all docs within the cheatsheets folder:\n\n\n\ncheatsheets/_metadata.yml\n\n# re-render only when a change to the source file is made\nfreeze: auto\n\n# enable banner style title blocks\ntitle-block-banner: true\n\nexecute:\n  eval: false\n\n\nCreate a listing page within the main project directory (cheatsheets.qmd in this case)\n\n\n\ncheatsheets.qmd\n\n---\ntitle: \"Cheeatsheets\"\nlisting:\n    contents: cheatsheets\n    type: table\n    fields: [date, title]\n---\n\n\nAdd the newly created listing, cheatsheets.qmd, to the navbar section of _quarto.yml (line 12):\n\n\n\n_quarto.yml\n\n---\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"H. Emre Etlioglu\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - cheatsheets.qmd\n\nformat:\n  html:\n    theme:\n      - default\n    css: styles.css\n    toc: true\n---    \n\n\nAdd a subfolder (quarto_website in this case) to the newly created section and a an index.qmd within that:\n\n\n\nTerminal\n\nmkdir cheatsheets/quarto_website && touch cheatsheets/quarto_website/index.qmd\n\n\nPopulate the newly created quarto document to generate an entry within the newly created section."
+  },
+  {
+    "objectID": "cheatsheets/rnaseq/index.html",
+    "href": "cheatsheets/rnaseq/index.html",
+    "title": "RNASeq",
+    "section": "",
+    "text": "Prefiltering is not needed when using DESeq2 as results() is performing independent filtering to remove genes with low power (ref).\n\nHowever, you typically don’t need to pre-filter because independent filtering occurs within results() to save you from multiple test correction on genes with no power (see ?results and the vignette section about independent filtering, or the paper). The main reason to pre-filter would be to increase speed. Designs with many samples and many interaction terms can slow down on genes which have very few reads."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "H. Emre Etlioglu",
+    "section": "",
+    "text": "Molecular biologist turned bioinformatician."
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nRNA-seq FAQs\n\n\nJun 26, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nPython\n\n\nMay 13, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "scripts.html",
+    "href": "scripts.html",
+    "title": "Scripts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\nAug 25, 2025\n\n\nFetching genomes from Ensembl\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "tutorials/docker/index.html",
+    "href": "tutorials/docker/index.html",
+    "title": "A short tutorial on docker",
+    "section": "",
+    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below (ref):\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+  },
+  {
+    "objectID": "tutorials/docker/index.html#set-up",
+    "href": "tutorials/docker/index.html#set-up",
+    "title": "A short tutorial on docker",
+    "section": "",
+    "text": "The user needs to belong to the group docker. The following command lets you check this:\n\n\nTerminal\n\ngroups username\n\nIf the output is something like username : username docker you are good to go. It means that the user is part of the groups username and docker. (A group with the same name as the user is always created while creating the user.)\nIf you do not belong to the group docker, consult your system admin. Basically, this is the person with the sudo privilages on your server. You will be added to the docker group with the command below (ref):\n\n\nTerminal\n\nsudo usermod -aG docker username\n\n-a means to append the group (docker above) to the list of groups a user is associated with -G means a comma separated list of groups (none above)"
+  },
+  {
+    "objectID": "tutorials/docker/index.html#pulling-a-docker-image",
+    "href": "tutorials/docker/index.html#pulling-a-docker-image",
+    "title": "A short tutorial on docker",
+    "section": "Pulling a docker image",
+    "text": "Pulling a docker image\nYou will need to “pull” a docker image (basically a template) and then start a docker container based on the pulled image.\n\n\nTerminal\n\ndocker image pull ...\n\nYou can inspect pulled/downloaded images with the following code:\n\n\nTerminal\n\ndocker image ls\n\nThe output of docker image ls would be something like the following:\nREPOSITORY                                    TAG       IMAGE ID       CREATED        SIZE\nquay.io/comparative-genomics-toolkit/cactus   v2.9.3    6edb410ba0e5   3 months ago   1.03GB\nbroadinstitute/gatk                           4.1.3.0   0ef3d00baa09   5 years ago    3.72GB"
+  },
+  {
+    "objectID": "tutorials/parse/index.html",
+    "href": "tutorials/parse/index.html",
+    "title": "Partitioning Parse scRNA-seq sub-library FASTQs",
+    "section": "",
+    "text": "Parse Biosciences’ split-pool combinatorial barcoding generates FASTQ files per sub-library rather than per sample. Moreover, the fact that this technique is capable of millions of cells, there are cases where different independent projects are bundled within the same run. The way to go from here when it comes to upload project specific raw data to ArrayExpress:\n1- Partition sub-library FASTQs into project specific sub-library FASTQs using fastq_sep_groups_v0.5.py, the script is developed by Parse Biosciences. This script is not shared here as the user is encouraged to use the latest version. The fact that the pipeline used for preprocessing Parse scRNA-seq output is working on the sub-library level and not on the sample level and also it is not possible to generate sample specific FASTQs due to the way barcoding/multiplexing is done in split-seq, no sample specific FASTQs are generated.\n\n\nTerminal\n\nfind ../data/* -type f -name '*R1*.fastq.gz' -print0 | xargs -0 -P 16 -I {} python ../fastq_sep_groups_v0.5.py -c v3 -f \"{}\" --group GBM A1-D4 --group HO D5-H12\n\n\nfind is used to generate a list of R1s, R2 paths are derived from that. find .. -print0 | xargs -0 ... pattern allows this works on non-alphanumeric filenames although this is not expected in bioinformatics/sequencing context.\nIn the example above, xargs initiates 16 processes, each starting with one sub-library R1 FASTQ.\nParse’s partitioning script has arguments -c for “chemistry”, -f to specify an input file and --group for specifying wells related to different projects/samples.\n\n2- The fact that sample-specific FASTQs are not meaningful for Parse scRNA-seq data, ArrayExpress expects sub-library FASTQs as if they are samples. In that regard, pretty much all feature columns would be filled in as “mixed” because more often than not (depending on how the libraries are prepared of course), all sub-libraries contain cells from all samples. To ensure reproducibility, a separate CSV file is supplied as sample metadata that will be used along with the output of Parse’s preprocessing pipeline."
   }
 ]
